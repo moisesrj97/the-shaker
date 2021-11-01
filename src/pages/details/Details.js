@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import CocktailsApi from "../../services/CocktailsAPI";
-import "./Details.scss";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import CocktailsApi from '../../services/CocktailsAPI';
+import './Details.scss';
 
 const Details = () => {
   const [state, setState] = useState({
-    id: "",
-    name: "",
-    img: "",
-    recipe: "",
-    type: "",
-    glass: "",
-    alcoholic: "",
-    ingredients: [""],
-    amount: [""],
+    id: '',
+    name: '',
+    img: '',
+    recipe: '',
+    type: '',
+    glass: '',
+    alcoholic: '',
+    ingredients: [''],
+    amount: [''],
   });
 
   const { id } = useParams();
@@ -66,10 +66,23 @@ const Details = () => {
     });
   }, []);
 
+  const handleShare = async () => {
+    const response = await fetch(state.img);
+    const blob = await response.blob();
+    const file = new File([blob], 'image.jpg', { type: blob.type });
+
+    navigator.share({
+      url: state.name,
+      title: state.name,
+      text: state.name + ': ' + state.recipe,
+      files: [file],
+    });
+  };
+
   return (
     <section className="detail">
       <div className="detail__image">
-        <img className="detail__image-photo" src={state.img} alt={""} />
+        <img className="detail__image-photo" src={state.img} alt={''} />
         <ul className="detail__hashtag">
           <li>
             <button className="detail__button" type="submit">
@@ -109,6 +122,7 @@ const Details = () => {
         <div>
           <h3 className="detail__subtitle">Recipe:</h3>
           <div className="detail__recipe">{state.recipe}</div>
+          <i class="far fa-share-square" onClick={handleShare}></i>
         </div>
       </div>
     </section>
