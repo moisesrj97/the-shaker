@@ -1,6 +1,7 @@
 import './App.scss';
 import { Route, Switch } from 'react-router';
 import HomePage from './pages/homepage/HomePage';
+import Details from './pages/details/Details';
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <HomePage />
+          </Route>
+          <Route exact path='/details/:id'>
+            <Details />
           </Route>
         </Switch>
       </main>
