@@ -16,13 +16,10 @@ const Details = () => {
     amount: [""],
   });
 
-  console.log(state);
-
   const { id } = useParams();
 
   useEffect(() => {
     CocktailsApi.searchByCocktailId(id).then((response) => {
-      console.log(response);
       setState({
         id: response.drinks[0].idDrink,
         name: response.drinks[0].strDrink,

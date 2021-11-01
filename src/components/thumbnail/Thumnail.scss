@@ -1,0 +1,24 @@
+.thumbnail {
+  width: 250px;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+  border-radius: 5%;
+  background-color: #604761;
+  box-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 40px #f44bfc;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 0.9;
+    object-fit: cover;
+    border-radius: 5%;
+    &-h2 {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      text-align: center;
+      text-shadow: 0 0 4px #f44bfc;
+      padding: 10px 0;
+    }
+  }
+}
