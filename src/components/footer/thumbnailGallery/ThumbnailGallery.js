@@ -1,11 +1,14 @@
-import React from 'react';
-import Thumbnail from '../../thumbnail/Thumbnail';
+import React from "react";
+import { Link } from "react-router-dom";
+import Thumbnail from "../../thumbnail/Thumbnail";
+import "./ThumbnailGallery.scss";
 
 const ThumbnailGallery = (props) => {
   return (
-    <div>
-      <h1>Thumbnail Gallery</h1>
-      <Thumbnail sampleData={props.sampleData.drinks[0]} />
+    <div className="gallery">
+      {props.sampleData.drinks.map((e, index) => {
+        return <Thumbnail key={index} sampleData={e} />;
+      })}
     </div>
   );
 };
