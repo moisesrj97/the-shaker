@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Thumbnail from "../../thumbnail/Thumbnail";
+import Thumbnail from "../thumbnail/Thumbnail";
 import "./ThumbnailGallery.scss";
 
 const ThumbnailGallery = (props) => {

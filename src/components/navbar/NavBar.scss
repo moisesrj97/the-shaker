@@ -28,7 +28,8 @@
   list-style-type: none;
 }
 
-.navbar__ul-list a {
+.navbar__ul-list a,
+.navbar__ul-list {
   display: flex;
   padding-right: 10px;
   color: #fef2fe;
@@ -36,6 +37,7 @@
   text-align: center;
   text-shadow: 0 0 4px #fff, 0 0 11px #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .navbar__ul-list:hover a {
