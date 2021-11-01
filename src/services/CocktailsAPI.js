@@ -64,21 +64,29 @@ export default class CocktailsApi {
   //Search lists methods
   static async getIngredientsList() {
     const response = await axios.get(baseURL + 'list.php?i=list');
-    return response.data;
+    return response.data.drinks.map((e) => e.strIngredient1);
   }
 
   static async getGlassList() {
     const response = await axios.get(baseURL + 'list.php?g=list');
-    return response.data;
+    return response.data.drinks.map((e) => e.strGlass);
   }
 
   static async getTypeList() {
     const response = await axios.get(baseURL + 'list.php?c=list');
-    return response.data;
+    return response.data.drinks.map((e) => e.strCategory);
   }
 
   static async getAlcoholicList() {
     const response = await axios.get(baseURL + 'list.php?a=list');
-    return response.data;
+    return response.data.drinks.map((e) => e.strAlcoholic);
+  }
+
+  static async getAllLists() {
+    const drinkTypes = await this.getTypeList();
+    const glassTypes = await this.getGlassList();
+    const alcoholicTypes = await this.getAlcoholicList();
+    const ingredients = await this.getIngredientsList();
+    return [drinkTypes, glassTypes, alcoholicTypes, ingredients];
   }
 }
