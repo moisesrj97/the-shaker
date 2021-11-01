@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import CocktailsApi from '../../services/CocktailsAPI';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import CocktailsApi from "../../services/CocktailsAPI";
+import "./Details.scss";
 
 const Details = () => {
   const [state, setState] = useState({
-    id: '',
-    name: '',
-    img: '',
-    recipe: '',
-    type: '',
-    glass: '',
-    alcoholic: '',
-    ingredients: [''],
-    amount: [''],
+    id: "",
+    name: "",
+    img: "",
+    recipe: "",
+    type: "",
+    glass: "",
+    alcoholic: "",
+    ingredients: [""],
+    amount: [""],
   });
 
   console.log(state);
@@ -28,7 +29,7 @@ const Details = () => {
         img: response.drinks[0].strDrinkThumb,
         recipe: response.drinks[0].strInstructions,
         type: response.drinks[0].strCategory,
-        glass: response.drinks[0].strCategory,
+        glass: response.drinks[0].strGlass,
         alcoholic: response.drinks[0].strAlcoholic,
         ingredients: [
           response.drinks[0].strIngredient1,
@@ -68,7 +69,53 @@ const Details = () => {
     });
   }, []);
 
-  return <div>Details for {id}</div>;
+  return (
+    <section className="detail">
+      <div className="detail__image">
+        <img className="detail__image-photo" src={state.img} alt={""} />
+        <ul className="detail__hashtag">
+          <li>
+            <button className="detail__button" type="submit">
+              #{state.type}
+            </button>
+          </li>
+          <li>
+            <button className="detail__button" type="submit">
+              #{state.glass}
+            </button>
+          </li>
+          <li>
+            <button className="detail__button" type="submit">
+              #{state.alcoholic}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div className="detail__description">
+        <div>
+          <h2 className="detail__name">{state.name}</h2>
+          <div>
+            <h2 className="detail__title">Ingredients:</h2>
+          </div>
+          <ul className="detail__ingredients">
+            {state.ingredients.map((e, index) => {
+              if (e !== null) {
+                return (
+                  <li>
+                    {e}: {state.amount[index]}
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        </div>
+        <div>
+          <h3 className="detail__subtitle">Recipe:</h3>
+          <div className="detail__recipe">{state.recipe}</div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Details;
