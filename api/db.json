@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": "asdjadjasdj",
       "email": "test@example.com",
       "fav": [
         {
@@ -18,8 +19,12 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": "12345"
         }
       ]
