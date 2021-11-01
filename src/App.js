@@ -1,7 +1,7 @@
 import './App.scss';
 import { Route, Switch } from 'react-router';
 import HomePage from './pages/homepage/HomePage';
-import { Footer } from './components/footer/Footer';
+import Footer from './components/footer/Footer';
 import Details from './pages/details/Details';
 
 function App() {
