@@ -1,11 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import App from "./App";
+import { Router } from "react-router-dom";
+import { createMemoryHistory } from "history";
 import { Footer } from "./Footer";
 
 test("renders footer text", () => {
+  const history = createMemoryHistory();
+  history.push("/");
+
   render(
-    <Router>
-      <Footer />
+    <Router history={history}>
+      <App />
     </Router>
   );
 

@@ -12,9 +12,7 @@ function App() {
           <Route exact path="/"></Route>
         </Switch>
       </main>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
