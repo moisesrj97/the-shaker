@@ -1,3 +1,28 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "test@example.com",
+      "fav": [
+        {
+          "id": "asdasdsadcascd",
+          "name": "test",
+          "thumb": "test",
+          "apiId": "12345"
+        }
+      ],
+      "custom": [
+        {
+          "name": "test",
+          "thumb": "test",
+          "recipe": "",
+          "type": "",
+          "glass": "",
+          "alcoholic": "",
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
+          "id": "12345"
+        }
+      ]
+    }
+  ]
 }
