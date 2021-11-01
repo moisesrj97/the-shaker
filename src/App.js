@@ -6,9 +6,11 @@ function App() {
   return (
     <div className='App'>
       <div>Header</div>
-      <Switch>
-        <Route exact path='/'></Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path='/'></Route>
+        </Switch>
+      </main>
       <div>Footer</div>
     </div>
   );
