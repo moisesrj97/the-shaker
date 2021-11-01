@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <Router>
+    <div class='blurred-background'></div>
     <App />
   </Router>,
   document.getElementById('root')
