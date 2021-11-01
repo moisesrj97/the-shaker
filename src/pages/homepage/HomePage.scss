@@ -94,3 +94,22 @@
       0 0 80px #f44bfc;
   }
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 600px) {
+  .homepage {
+    &__title {
+      font-size: 4rem;
+    }
+    &__title-logo {
+      display: none;
+    }
+    &__subtitle {
+      font-size: 1.5rem;
+    }
+    &__button {
+      margin-top: 50px;
+      font-size: 1.3rem;
+    }
+  }
+}
