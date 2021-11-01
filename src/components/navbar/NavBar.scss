@@ -42,5 +42,35 @@
   text-decoration: underline;
 }
 
+.navbar__mobile {
+  &-menu {
+    display: none;
+  }
+  &-ul {
+    position: fixed;
+    right: 0;
+    top: 30px;
+    list-style-type: none;
+    text-align: right;
+    padding: 30px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.144);
+  }
+  &-ul-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 0;
+  }
+}
+
 @media (max-width: 600px) {
+  .navbar__mobile-menu {
+    display: block;
+  }
+
+  .navbar__ul {
+    display: none;
+  }
 }
