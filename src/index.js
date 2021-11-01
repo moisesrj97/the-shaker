@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+import DataContextProvider from './context/DataContext';
 
 ReactDOM.render(
   <Auth0Provider
@@ -12,10 +13,12 @@ ReactDOM.render(
     clientId='7WkMb76BLYxhk94upAFw4ikvxWPGVhgN'
     redirectUri={window.location.origin}
   >
-    <Router>
-      <div className='blurred-background'></div>
-      <App />
-    </Router>
+    <DataContextProvider>
+      <Router>
+        <div className='blurred-background'></div>
+        <App />
+      </Router>
+    </DataContextProvider>
   </Auth0Provider>,
   document.getElementById('root')
 );

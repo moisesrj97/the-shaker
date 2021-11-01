@@ -1,8 +1,7 @@
 {
   "users": [
     {
-      "id": "asdjadjasdj",
-      "email": "test@example.com",
+      "id": "test@example.com",
       "fav": [
         {
           "id": "asdasdsadcascd",
@@ -28,6 +27,37 @@
           "id": "12345"
         }
       ]
+    },
+    {
+      "id": "moisesrj97@gmail.com",
+      "fav": [
+        {
+          "id": "asdasdsadcascd",
+          "name": "test",
+          "thumb": "test",
+          "apiId": "12345"
+        }
+      ],
+      "custom": [
+        {
+          "name": "test",
+          "thumb": "test",
+          "recipe": "",
+          "type": "",
+          "glass": "",
+          "alcoholic": "",
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
+          "id": "12345"
+        }
+      ]
+    },
+    {
+      "id": "moisesrj97music@gmail.com"
     }
   ]
 }
