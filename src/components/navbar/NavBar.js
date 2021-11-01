@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import { Sling as Hamburger } from 'hamburger-react';
 
 import './NavBar.scss';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false);
+
+  const { user, loginWithRedirect, logout } = useAuth0();
 
   return (
     <div className='navbar'>
@@ -30,17 +33,28 @@ const NavBar = () => {
 
         <ul className='navbar__ul'>
           <li className='navbar__ul-list'>
-            <Link to='/'>Cocktails</Link>
+            <Link to='/search'>Cocktails</Link>
           </li>
-          <li className='navbar__ul-list'>
-            <Link to='/'>Favorites</Link>
-          </li>
-          <li className='navbar__ul-list'>
-            <Link to='/'>My Cocktails</Link>
-          </li>
-          <li className='navbar__ul-list'>
-            <Link to='/'>Login</Link>
-          </li>
+          {user && (
+            <>
+              <li className='navbar__ul-list'>
+                <Link to='/'>Favorites</Link>
+              </li>
+              <li className='navbar__ul-list'>
+                <Link to='/'>My Cocktails</Link>
+              </li>
+            </>
+          )}
+
+          {!user ? (
+            <li className='navbar__ul-list' onClick={() => loginWithRedirect()}>
+              Login
+            </li>
+          ) : (
+            <li className='navbar__ul-list' onClick={() => logout()}>
+              Logout
+            </li>
+          )}
         </ul>
         <div className='navbar__mobile-menu'>
           <Hamburger toggled={isOpen} toggle={setOpen} />
@@ -49,15 +63,29 @@ const NavBar = () => {
               <li className='navbar__mobile-ul-list'>
                 <Link to='/'>Cocktails</Link>
               </li>
-              <li className='navbar__mobile-ul-list'>
-                <Link to='/'>Favorites</Link>
-              </li>
-              <li className='navbar__mobile-ul-list'>
-                <Link to='/'>My Cocktails</Link>
-              </li>
-              <li className='navbar__mobile-ul-list'>
-                <Link to='/'>Login</Link>
-              </li>
+              {user && (
+                <>
+                  <li className='navbar__mobile-ul-list'>
+                    <Link to='/'>Favorites</Link>
+                  </li>
+                  <li className='navbar__mobile-ul-list'>
+                    <Link to='/'>My Cocktails</Link>
+                  </li>
+                </>
+              )}
+
+              {!user ? (
+                <li
+                  className='navbar__mobile-ul-list'
+                  onClick={() => loginWithRedirect()}
+                >
+                  Login
+                </li>
+              ) : (
+                <li className='navbar__mobile-ul-list' onClick={() => logout()}>
+                  Logout
+                </li>
+              )}
             </ul>
           )}
         </div>
