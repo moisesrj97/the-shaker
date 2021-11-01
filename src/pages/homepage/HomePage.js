@@ -1,8 +1,15 @@
 import React from 'react';
+import CocktailsApi from '../../services/CocktailsAPI';
+import { useHistory } from 'react-router-dom';
 
 import './HomePage.scss';
 
 const HomePage = () => {
+  const history = useHistory();
+  const handleButton = async () => {
+    const response = await CocktailsApi.searchRandomCocktail();
+    history.push('details/' + response.drinks[0].idDrink);
+  };
   return (
     <div className='homepage'>
       <hgroup className='homepage__title-container'>
@@ -24,7 +31,7 @@ const HomePage = () => {
         </svg>
       </hgroup>
       <h2 className='homepage__subtitle'>It´s time to have fun</h2>
-      <button className='homepage__button'>
+      <button className='homepage__button' onClick={handleButton}>
         Random Cocktail <i className='fas fa-random'></i>
       </button>
     </div>

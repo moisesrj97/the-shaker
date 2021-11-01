@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = `www.thecocktaildb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/`;
+const baseURL = `https://www.thecocktaildb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/`;
 
 export default class CocktailsApi {
   //Search cocktail methods
