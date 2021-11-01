@@ -33,14 +33,19 @@ const NavBar = () => {
 
         <ul className='navbar__ul'>
           <li className='navbar__ul-list'>
-            <Link to='/'>Cocktails</Link>
+            <Link to='/search'>Cocktails</Link>
           </li>
-          <li className='navbar__ul-list'>
-            <Link to='/'>Favorites</Link>
-          </li>
-          <li className='navbar__ul-list'>
-            <Link to='/'>My Cocktails</Link>
-          </li>
+          {user && (
+            <>
+              <li className='navbar__ul-list'>
+                <Link to='/'>Favorites</Link>
+              </li>
+              <li className='navbar__ul-list'>
+                <Link to='/'>My Cocktails</Link>
+              </li>
+            </>
+          )}
+
           {!user ? (
             <li className='navbar__ul-list' onClick={() => loginWithRedirect()}>
               Login
@@ -58,12 +63,17 @@ const NavBar = () => {
               <li className='navbar__mobile-ul-list'>
                 <Link to='/'>Cocktails</Link>
               </li>
-              <li className='navbar__mobile-ul-list'>
-                <Link to='/'>Favorites</Link>
-              </li>
-              <li className='navbar__mobile-ul-list'>
-                <Link to='/'>My Cocktails</Link>
-              </li>
+              {user && (
+                <>
+                  <li className='navbar__mobile-ul-list'>
+                    <Link to='/'>Favorites</Link>
+                  </li>
+                  <li className='navbar__mobile-ul-list'>
+                    <Link to='/'>My Cocktails</Link>
+                  </li>
+                </>
+              )}
+
               {!user ? (
                 <li
                   className='navbar__mobile-ul-list'
