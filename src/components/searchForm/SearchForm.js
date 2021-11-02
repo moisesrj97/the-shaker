@@ -1,13 +1,26 @@
 import React, { useContext, useState } from 'react';
 import { DataContext } from '../../context/DataContext';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const alphabet = alpha.map((x) => String.fromCharCode(x));
 
-  const [ingredients, setIngredients] = useState([]);
+  const [state, setState] = useState({ type: '', query: [''] });
 
   const { store } = useContext(DataContext);
+
+  const handleChange = (evt) => {
+    if (state.type === 'byIngredient' && evt.target.name === 'byIngredient') {
+      setState({
+        type: evt.target.name,
+        query: [...state.query, evt.target.value],
+      });
+    } else {
+      setState({ type: evt.target.name, query: [evt.target.value] });
+    }
+  };
+
+  const handleSearch = () => props.searchCocktails(state.type, state.query);
 
   return (
     <div>
@@ -16,6 +29,7 @@ const SearchForm = () => {
           By name:
         </label>
         <input
+          onChange={handleChange}
           className="form__input-text"
           type="text"
           id="byName"
@@ -26,8 +40,13 @@ const SearchForm = () => {
         <label className="form__label" htmlFor="byLetter">
           By Letter:
         </label>
-        <select className="form__input-select" id="byLetter" name="byLetter">
-          <option selected disabled>
+        <select
+          onChange={handleChange}
+          className="form__input-select"
+          id="byLetter"
+          name="byLetter"
+        >
+          <option defaultValue disabled>
             Select an option...
           </option>
           {alphabet.map((e, index) => {
@@ -44,13 +63,12 @@ const SearchForm = () => {
           By Alcoholic:
         </label>
         <select
+          onChange={handleChange}
           className="form__input-select"
           id="byAlcoholic"
           name="byAlcoholic"
         >
-          <option selected disabled>
-            Select an option...
-          </option>
+          <option disabled>Select an option...</option>
           {store.lists.alcoholic.map((e, index) => {
             return (
               <option key={index} value={e}>
@@ -64,8 +82,13 @@ const SearchForm = () => {
         <label className="form__label" htmlFor="byType">
           By Type:
         </label>
-        <select className="form__input-select" id="byType" name="byType">
-          <option selected disabled>
+        <select
+          onChange={handleChange}
+          className="form__input-select"
+          id="byType"
+          name="byType"
+        >
+          <option defaultValue disabled>
             Select an option...
           </option>
           {store.lists.types.map((e, index) => {
@@ -81,8 +104,13 @@ const SearchForm = () => {
         <label className="form__label" htmlFor="byGlass">
           By Glass:
         </label>
-        <select className="form__input-select" id="byGlass" name="byGlass">
-          <option selected disabled>
+        <select
+          onChange={handleChange}
+          className="form__input-select"
+          id="byGlass"
+          name="byGlass"
+        >
+          <option defaultValue disabled>
             Select an option...
           </option>
           {store.lists.glasses.map((e, index) => {
@@ -99,12 +127,13 @@ const SearchForm = () => {
           By Ingredient/s:
         </label>
         <select
+          onChange={handleChange}
           className="form__input-select"
           id="byIngredient"
           name="byIngredient"
-          onChange={(evt) => setIngredients([...ingredients, evt.target.value])}
+          onChange={handleChange}
         >
-          <option selected disabled>
+          <option defaultValue disabled>
             Select up to 3 options...
           </option>
           {store.lists.ingredients.sort().map((e, index) => {
@@ -118,24 +147,28 @@ const SearchForm = () => {
       </div>
       <div>
         <ul>
-          {ingredients.map((e, index) => {
-            return (
-              <li key={index}>
-                {e}{' '}
-                <i
-                  class="far fa-trash-alt"
-                  onClick={() =>
-                    setIngredients(
-                      ingredients.filter((i, iIndex) => iIndex !== index)
-                    )
-                  }
-                ></i>
-              </li>
-            );
-          })}
+          {state.type === 'byIngredient' &&
+            state.query.map((e, index) => {
+              return (
+                <li key={index}>
+                  {e}
+                  <i
+                    class="far fa-trash-alt"
+                    onClick={() =>
+                      setState({
+                        ...state,
+                        query: state.query.filter(
+                          (i, iIndex) => iIndex !== index
+                        ),
+                      })
+                    }
+                  ></i>
+                </li>
+              );
+            })}
         </ul>
       </div>
-      <button>Shake it!</button>
+      <button onClick={handleSearch}>Shake it!</button>
     </div>
   );
 };

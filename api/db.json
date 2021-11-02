@@ -9,7 +9,34 @@
           "thumb": "",
           "apiId": ""
         },
+        {}
+      ],
+      "custom": [
         {
+          "name": "",
+          "thumb": "",
+          "recipe": "",
+          "type": "",
+          "glass": "",
+          "alcoholic": "",
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
+          "id": ""
+        }
+      ]
+    },
+    {
+      "id": "moisesrj97@gmail.com",
+      "fav": [
+        {
+          "id": "",
+          "name": "",
+          "thumb": "",
+          "apiId": ""
         }
       ],
       "custom": [
