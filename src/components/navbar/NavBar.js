@@ -57,11 +57,15 @@ const NavBar = () => {
           )}
         </ul>
         <div className="navbar__mobile-menu">
-          <Hamburger toggled={isOpen} toggle={setOpen} />
+          <Hamburger
+            toggled={isOpen}
+            toggle={setOpen}
+            onBlur={() => setOpen(false)}
+          />
           {isOpen && (
             <ul className="navbar__mobile-ul">
               <li className="navbar__mobile-ul-list">
-                <Link to="/">Cocktails</Link>
+                <Link to="/search">Cocktails</Link>
               </li>
               {user && (
                 <>

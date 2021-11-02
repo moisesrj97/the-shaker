@@ -138,7 +138,7 @@ const Details = () => {
       <div className="detail__description">
         <div>
           <div className="detail__header">
-            <p className="detail__name">{state.name} </p>
+            <p className="detail__name">{state.name}</p>
             {user && state.isFavorite === true && (
               <i
                 className="detail__star fas fa-star"
