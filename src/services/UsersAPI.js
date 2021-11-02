@@ -8,7 +8,30 @@ export default class UsersAPI {
       const response = await axios.get(baseURL + 'users/' + id);
       return response.data;
     } catch (e) {
-      const response = await axios.post(baseURL + 'users/', { id });
+      const response = await axios.post(baseURL + 'users/', {
+        id,
+        fav: [
+          {
+            id: '',
+            name: '',
+            thumb: '',
+            apiId: '',
+          },
+        ],
+        custom: [
+          {
+            name: '',
+            thumb: '',
+            recipe: '',
+            type: '',
+            glass: '',
+            alcoholic: '',
+            ingredientes: [''],
+            ingredientesAmount: [''],
+            id: '',
+          },
+        ],
+      });
       return response.data;
     }
   }
