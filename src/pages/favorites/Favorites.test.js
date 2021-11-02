@@ -3,47 +3,58 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
 import DataContextProvider from '../../context/DataContext';
-import Favorites from './favorites';
+import App from '../../App';
+import { useAuth0 } from '@auth0/auth0-react';
 
-const sampleData = {
-  fav: [
-    {
-      name: 'Army special',
-      thumb:
-        'https://www.thecocktaildb.com/images/media/drink/55muhh1493068062.jpg',
-      apiId: '17066',
-      id: 'a38f4c09-4cfc-465e-a3a8-75cbdc2cf60c',
-    },
-    {
-      name: 'Bora Bora',
-      thumb:
-        'https://www.thecocktaildb.com/images/media/drink/xwuqvw1473201811.jpg',
-      apiId: '12572',
-      id: 'e453e2da-db3d-4e39-8ba8-ffe5b3aeccce',
-    },
-    {
-      name: 'Long Island Iced Tea',
-      thumb:
-        'https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg',
-      apiId: '17204',
-      id: 'd79a8abf-2c7e-4e98-9adb-5af4ec013f16',
-    },
-  ],
+const user = {
+  email: 'johndoe@me.com',
+  email_verified: true,
+  sub: 'google-oauth2|2147627834623744883746',
 };
 
-test('renders favorites', () => {
+jest.mock('@auth0/auth0-react');
+
+test('renders favorites', async () => {
+  useAuth0.mockReturnValue({
+    isAuthenticated: true,
+    user,
+    logout: jest.fn(),
+    loginWithRedirect: jest.fn(),
+  });
+
   const history = createMemoryHistory();
-  history.push('/');
+  history.push('/favorites');
 
   render(
     <DataContextProvider>
       <Router history={history}>
-        <Favorites sampleData={sampleData} />
+        <App />
       </Router>
     </DataContextProvider>
   );
 
-  expect(screen.getByText(/Long Island Iced Tea/i)).toBeInTheDocument();
-  expect(screen.getByText(/Army special/i)).toBeInTheDocument();
-  expect(screen.getByText(/Bora Bora/i)).toBeInTheDocument();
+  expect(await screen.findByText(/Mock Cocktail/i)).toBeInTheDocument();
+  expect(screen.getByRole('img')).toBeInTheDocument();
+});
+
+test('renders favorites', async () => {
+  useAuth0.mockReturnValue({
+    isAuthenticated: true,
+    user: undefined,
+    logout: jest.fn(),
+    loginWithRedirect: jest.fn(),
+  });
+
+  const history = createMemoryHistory();
+  history.push('/favorites');
+
+  render(
+    <DataContextProvider>
+      <Router history={history}>
+        <App />
+      </Router>
+    </DataContextProvider>
+  );
+
+  expect(await screen.findByText(/No cocktails to show/i)).toBeInTheDocument();
 });
