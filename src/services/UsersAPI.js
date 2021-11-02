@@ -19,7 +19,8 @@ export default class UsersAPI {
       ...data,
       fav: [...data.fav, { ...newFavorite, id: uuid() }],
     });
-    return response.data;
+    console.log(response.data);
+    return response.data.fav.find((e) => e.apiId === newFavorite.apiId);
   }
 
   static async removeFavorite(id, favoriteId) {
