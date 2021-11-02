@@ -9,8 +9,7 @@
           "thumb": "",
           "apiId": ""
         },
-        {
-        }
+        {}
       ],
       "custom": [
         {
@@ -20,12 +19,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
