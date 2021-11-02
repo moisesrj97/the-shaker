@@ -12,7 +12,7 @@ const SearchForm = () => {
   return (
     <div>
       <div>
-        <label className="form__label" for="byName">
+        <label className="form__label" htmlFor="byName">
           By name:
         </label>
         <input
@@ -23,7 +23,7 @@ const SearchForm = () => {
         />
       </div>
       <div>
-        <label className="form__label" for="byLetter">
+        <label className="form__label" htmlFor="byLetter">
           By Letter:
         </label>
         <select className="form__input-select" id="byLetter" name="byLetter">
@@ -40,7 +40,7 @@ const SearchForm = () => {
         </select>
       </div>
       <div>
-        <label className="form__label" for="byAlcoholic">
+        <label className="form__label" htmlFor="byAlcoholic">
           By Alcoholic:
         </label>
         <select
@@ -61,7 +61,7 @@ const SearchForm = () => {
         </select>
       </div>
       <div>
-        <label className="form__label" for="byType">
+        <label className="form__label" htmlFor="byType">
           By Type:
         </label>
         <select className="form__input-select" id="byType" name="byType">
@@ -78,7 +78,7 @@ const SearchForm = () => {
         </select>
       </div>
       <div>
-        <label className="form__label" for="byGlass">
+        <label className="form__label" htmlFor="byGlass">
           By Glass:
         </label>
         <select className="form__input-select" id="byGlass" name="byGlass">
@@ -95,7 +95,7 @@ const SearchForm = () => {
         </select>
       </div>
       <div>
-        <label className="form__label" for="byIngredient">
+        <label className="form__label" htmlFor="byIngredient">
           By Ingredient/s:
         </label>
         <select
