@@ -38,10 +38,10 @@ const NavBar = () => {
           {user && (
             <>
               <li className="navbar__ul-list">
-                <Link to="/">Favorites</Link>
+                <Link to="/favorites">Favorites</Link>
               </li>
               <li className="navbar__ul-list">
-                <Link to="/">My Cocktails</Link>
+                <Link to="/custom">My Cocktails</Link>
               </li>
             </>
           )}
@@ -66,10 +66,10 @@ const NavBar = () => {
               {user && (
                 <>
                   <li className="navbar__mobile-ul-list">
-                    <Link to="/">Favorites</Link>
+                    <Link to="/favorites">Favorites</Link>
                   </li>
                   <li className="navbar__mobile-ul-list">
-                    <Link to="/">My Cocktails</Link>
+                    <Link to="/custom">My Cocktails</Link>
                   </li>
                 </>
               )}
