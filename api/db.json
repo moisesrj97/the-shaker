@@ -1,14 +1,15 @@
 {
   "users": [
     {
-      "id": "berserksnake976@gmail.com",
+      "id": "jferrergil1@gmail.com",
       "fav": [
         {
           "id": "",
           "name": "",
           "thumb": "",
           "apiId": ""
-        }
+        },
+        {}
       ],
       "custom": [
         {
@@ -18,12 +19,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
