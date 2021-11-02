@@ -1,37 +1,21 @@
 {
   "users": [
     {
-      "id": "moisesrj97@gmail.com",
+      "id": "jferrergil1@gmail.com",
       "fav": [
         {
-          "id": "asdasdsadcascd",
-          "name": "test",
-          "thumb": "test",
-          "apiId": "17020"
+          "id": "",
+          "name": "",
+          "thumb": "",
+          "apiId": ""
         },
         {
-          "name": "Bleeding Surgeon",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/usuvvr1472719118.jpg",
-          "apiId": "16295",
-          "id": "d2592b8b-ead7-47a4-8ae0-0f71a82c4e7a"
-        },
-        {
-          "name": "Tia-Maria",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/sih81u1504367097.jpg",
-          "apiId": "12856",
-          "id": "916922a6-de76-4688-8940-d209b37d6231"
-        },
-        {
-          "name": "Army special",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/55muhh1493068062.jpg",
-          "apiId": "17066",
-          "id": "f2b1e8e8-4572-4843-858c-a9ef7194cd8e"
         }
       ],
       "custom": [
         {
-          "name": "test",
-          "thumb": "test",
+          "name": "",
+          "thumb": "",
           "recipe": "",
           "type": "",
           "glass": "",
@@ -42,15 +26,9 @@
           "ingredientesAmount": [
             ""
           ],
-          "id": "12345"
+          "id": ""
         }
       ]
-    },
-    {
-      "id": "moisesrj97music@gmail.com"
-    },
-    {
-      "id": "jferrergil1@gmail.com"
     }
   ]
 }
