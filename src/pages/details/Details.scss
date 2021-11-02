@@ -18,6 +18,8 @@
   border-color: rgb(78, 46, 78);
   border-style: solid;
   border-radius: 25px;
+  box-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f4ecf5, 0 0 73px #fbb5ff,
+    0 0 80px #ed00fa00;
 }
 
 .detail__hashtag {
@@ -39,6 +41,8 @@
   letter-spacing: 1px;
   height: 100%;
   font-size: 1rem;
+  text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
+    0 0 80px #f44bfc;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   &:hover {
@@ -55,21 +59,26 @@
   width: 40%;
 }
 
-.detail__name {
+.detail__header {
   display: flex;
-  font-size: 5rem;
-  margin: 0 20px;
-  padding: 0 20px;
-
+  flex-direction: column;
   font-family: 'Dancing Script', cursive;
   text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
     0 0 80px #f44bfc;
+  justify-content: center;
+}
+
+.detail__name {
+  display: flex;
+  margin-left: 40px;
+  font-size: 5rem;
 }
 
 .detail__star {
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 20px;
   cursor: pointer;
+  font-size: 4rem;
 }
 
 .detail__title {
@@ -103,6 +112,8 @@
   padding: 20px;
   font-size: 40px;
   cursor: pointer;
+  text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
+    0 0 80px #f44bfc;
 }
 
 @media screen and (max-width: 600px) {
@@ -135,6 +146,11 @@
     align-items: center;
     width: 100%;
     text-align: center;
+  }
+
+  .detail__header {
+    display: flex;
+    flex-direction: column;
   }
 
   .detail__name {
