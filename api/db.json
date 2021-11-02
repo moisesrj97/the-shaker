@@ -19,8 +19,12 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": ""
         }
       ]
@@ -33,6 +37,12 @@
           "name": "",
           "thumb": "",
           "apiId": ""
+        },
+        {
+          "name": "Alice Cocktail",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg",
+          "apiId": "12562",
+          "id": "e97c5417-a9d9-4034-bb43-3bce578448c5"
         }
       ],
       "custom": [
@@ -43,8 +53,12 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": ""
         }
       ]
