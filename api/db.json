@@ -84,6 +84,34 @@
           "id": ""
         }
       ]
+    },
+    {
+      "id": "johndoe@me.com",
+      "fav": [
+        {
+          "id": "",
+          "name": "",
+          "thumb": "",
+          "apiId": ""
+        }
+      ],
+      "custom": [
+        {
+          "name": "",
+          "thumb": "",
+          "recipe": "",
+          "type": "",
+          "glass": "",
+          "alcoholic": "",
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
+          "id": ""
+        }
+      ]
     }
   ]
 }

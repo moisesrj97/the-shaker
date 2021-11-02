@@ -5,11 +5,18 @@
   flex-grow: 1;
   justify-content: center;
   gap: 20px;
+  width: 75%;
 
   height: 80vh;
   overflow-y: scroll;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    height: 100%;
   }
 }

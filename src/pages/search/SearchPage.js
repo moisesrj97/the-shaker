@@ -67,7 +67,6 @@ const SearchPage = () => {
   const [cocktails, setCocktails] = useState({ drinks: [] });
 
   const searchCocktails = (type, query) => {
-    console.log(type, query);
     switch (type) {
       case 'byName':
         CocktailsApi.searchByCocktailName(query.join()).then((response) =>

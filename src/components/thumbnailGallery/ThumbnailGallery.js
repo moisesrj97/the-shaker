@@ -5,6 +5,7 @@ import './ThumbnailGallery.scss';
 const ThumbnailGallery = (props) => {
   console.log(props);
   if (
+    props.sampleData.drinks !== null &&
     props.sampleData.drinks.length >= 1 &&
     props.sampleData.drinks !== 'None Found'
   ) {
