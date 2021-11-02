@@ -19,12 +19,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
@@ -47,12 +43,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
@@ -81,12 +73,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
@@ -99,6 +87,12 @@
           "name": "",
           "thumb": "",
           "apiId": ""
+        },
+        {
+          "id": "asdasdasd",
+          "name": "Mock Cocktail",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/xvwusr1472669302.jpg",
+          "apiId": "12345"
         }
       ],
       "custom": [
@@ -109,12 +103,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
