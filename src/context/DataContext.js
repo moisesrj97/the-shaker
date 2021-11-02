@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useReducer, createContext, useEffect } from 'react';
+import { loadList, loginUser } from '../reducer/actionMaker';
 import userReducer from '../reducer/userReducer';
 import CocktailsApi from '../services/CocktailsAPI';
 import UsersAPI from '../services/UsersAPI';
@@ -42,15 +43,13 @@ const DataContextProvider = (props) => {
   });
 
   useEffect(() => {
-    CocktailsApi.getAllLists().then((response) =>
-      dispatch({ type: 'LOAD_LISTS', payload: response })
-    );
+    CocktailsApi.getAllLists().then((response) => dispatch(loadList(response)));
   }, []);
 
   useEffect(() => {
     if (user) {
       UsersAPI.getUserData(user.email).then((response) =>
-        dispatch({ type: 'LOGIN_USER', payload: response })
+        dispatch(loginUser(response))
       );
     } else {
       dispatch({ type: 'LOGOUT_USER' });
