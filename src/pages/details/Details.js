@@ -122,7 +122,10 @@ const Details = () => {
         <div>
           <h3 className="detail__subtitle">Recipe:</h3>
           <div className="detail__recipe">{state.recipe}</div>
-          <i class="far fa-share-square" onClick={handleShare}></i>
+          <i
+            class="detail__share far fa-share-square"
+            onClick={handleShare}
+          ></i>
         </div>
       </div>
     </section>
