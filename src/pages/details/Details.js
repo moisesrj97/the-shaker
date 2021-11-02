@@ -109,7 +109,7 @@ const Details = () => {
           </div>
           <ul className="detail__ingredients">
             {state.ingredients.map((e, index) => {
-              if (e !== null) {
+              if (e !== null && e !== '') {
                 return (
                   <li>
                     {e}: {state.amount[index]}
