@@ -1,31 +1,6 @@
 {
   "users": [
     {
-      "id": "jferrergil1@gmail.com",
-      "fav": [
-        {
-          "id": "",
-          "name": "",
-          "thumb": "",
-          "apiId": ""
-        },
-        {}
-      ],
-      "custom": [
-        {
-          "name": "",
-          "thumb": "",
-          "recipe": "",
-          "type": "",
-          "glass": "",
-          "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
-          "id": ""
-        }
-      ]
-    },
-    {
       "id": "moisesrj97@gmail.com",
       "fav": [
         {
@@ -33,34 +8,6 @@
           "thumb": "https://www.thecocktaildb.com/images/media/drink/55muhh1493068062.jpg",
           "apiId": "17066",
           "id": "a38f4c09-4cfc-465e-a3a8-75cbdc2cf60c"
-        },
-        {
-          "name": "Bora Bora",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/xwuqvw1473201811.jpg",
-          "apiId": "12572",
-          "id": "e453e2da-db3d-4e39-8ba8-ffe5b3aeccce"
-        },
-        {
-          "name": "Long Island Iced Tea",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg",
-          "apiId": "17204",
-          "id": "d79a8abf-2c7e-4e98-9adb-5af4ec013f16"
-        },
-        {
-          "name": "Long Island Iced Tea",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg",
-          "apiId": "17204",
-          "id": "44f4f5d0-9cc8-4e2c-bdd0-8abb2feae2a5"
-        },
-        {
-          "name": "Long Island Iced Tea",
-          "thumb": "https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg",
-          "apiId": "17204",
-          "id": "35ad0a3d-ad97-4ef9-9f89-c9aaf5fc222f"
-          "id": "",
-          "name": "",
-          "thumb": "",
-          "apiId": ""
         }
       ],
       "custom": [
@@ -71,8 +18,46 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
+          "id": ""
+        }
+      ]
+    },
+    {
+      "id": "johndoe@me.com",
+      "fav": [
+        {
+          "id": "",
+          "name": "",
+          "thumb": "",
+          "apiId": ""
+        },
+        {
+          "id": "asdasdasdasdasdasd",
+          "name": "Mock Cocktail",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/55muhh1493068062.jpg",
+          "apiId": "12345"
+        }
+      ],
+      "custom": [
+        {
+          "name": "",
+          "thumb": "",
+          "recipe": "",
+          "type": "",
+          "glass": "",
+          "alcoholic": "",
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": ""
         }
       ]
