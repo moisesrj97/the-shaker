@@ -13,10 +13,9 @@ export const loginUser = (response) => {
   };
 };
 
-export const logoutUser = (response) => {
+export const logoutUser = () => {
   return {
     type: LOGOUT_USER,
-    payload: response,
   };
 };
 
