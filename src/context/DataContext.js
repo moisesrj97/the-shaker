@@ -1,11 +1,11 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useReducer, createContext, useEffect } from 'react';
-import { loadList, loginUser } from '../reducer/actionMaker';
+import { loadList, loginUser, logoutUser } from '../reducer/actionMaker';
 import userReducer from '../reducer/userReducer';
 import CocktailsApi from '../services/CocktailsAPI';
 import UsersAPI from '../services/UsersAPI';
 
-const DataContext = createContext();
+export const DataContext = createContext();
 
 const DataContextProvider = (props) => {
   const { user } = useAuth0();
@@ -52,7 +52,7 @@ const DataContextProvider = (props) => {
         dispatch(loginUser(response))
       );
     } else {
-      dispatch({ type: 'LOGOUT_USER' });
+      dispatch(logoutUser());
     }
   }, [user]);
 
