@@ -84,7 +84,7 @@ const Details = () => {
     } else {
       setState({ ...state, isFavorite: false, favoriteId: '' });
     }
-  }, [store]);
+  }, [store, state.id]);
 
   const handleShare = async () => {
     const response = await fetch(state.img);
