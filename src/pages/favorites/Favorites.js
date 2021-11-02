@@ -6,13 +6,13 @@ import './Favorites.scss';
 const Favorites = () => {
   const { store } = useContext(DataContext);
   return (
-    <div>
+    <>
       <ThumbnailGallery
         sampleData={{
           drinks: store.user.fav.filter((e, index) => index >= 1),
         }}
       />
-    </div>
+    </>
   );
 };
 
