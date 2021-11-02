@@ -56,12 +56,17 @@
 }
 
 .detail__name {
+  display: flex;
   font-size: 5rem;
   margin: 0 20px;
   padding: 0 20px;
   font-family: 'Dancing Script', cursive;
   text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
     0 0 80px #f44bfc;
+}
+
+.detail__star {
+  cursor: pointer;
 }
 
 .detail__title {
