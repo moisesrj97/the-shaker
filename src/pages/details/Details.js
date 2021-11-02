@@ -138,7 +138,6 @@ const Details = () => {
       <div className="detail__description">
         <div>
           <h2 className="detail__name">
-            {state.name}{' '}
             {user && state.isFavorite === true && (
               <i
                 className="detail__star fas fa-star"
@@ -151,6 +150,7 @@ const Details = () => {
                 onClick={handleAddFav}
               ></i>
             )}
+            {state.name}{' '}
           </h2>
           <div>
             <h2 className="detail__title">Ingredients:</h2>
