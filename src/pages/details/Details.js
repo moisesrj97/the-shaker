@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import CocktailsApi from '../../services/CocktailsAPI';
+import { DataContext } from '../../context/DataContext';
+import UsersApi from '../../services/UsersAPI';
 import './Details.scss';
+import { useAuth0 } from '@auth0/auth0-react';
+import { addFav, removeFav } from '../../reducer/actionMaker';
+import UsersAPI from '../../services/UsersAPI';
 
 const Details = () => {
+  const { store, dispatch } = useContext(DataContext);
+
   const [state, setState] = useState({
+    isFavorite: false,
+    favoriteId: '',
     id: '',
     name: '',
     img: '',
@@ -17,10 +26,12 @@ const Details = () => {
   });
 
   const { id } = useParams();
+  const { user } = useAuth0();
 
   useEffect(() => {
     CocktailsApi.searchByCocktailId(id).then((response) => {
       setState({
+        ...state,
         id: response.drinks[0].idDrink,
         name: response.drinks[0].strDrink,
         img: response.drinks[0].strDrinkThumb,
@@ -66,6 +77,15 @@ const Details = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (store.user.fav.some((e) => e.apiId === state.id)) {
+      const favId = store.user.fav.find((e) => e.apiId === state.id).id;
+      setState({ ...state, isFavorite: true, favoriteId: favId });
+    } else {
+      setState({ ...state, isFavorite: false, favoriteId: '' });
+    }
+  }, [store]);
+
   const handleShare = async () => {
     const response = await fetch(state.img);
     const blob = await response.blob();
@@ -77,6 +97,20 @@ const Details = () => {
       text: state.name + ': ' + state.recipe,
       files: [file],
     });
+  };
+
+  const handleAddFav = async () => {
+    UsersApi.addFavorite(store.user.id, {
+      name: state.name,
+      thumb: state.img,
+      apiId: state.id,
+    }).then((response) => dispatch(addFav(response)));
+  };
+
+  const handleDeleteFav = async () => {
+    UsersAPI.removeFavorite(store.user.id, state.favoriteId).then((response) =>
+      dispatch(removeFav(state.favoriteId))
+    );
   };
 
   return (
@@ -103,7 +137,15 @@ const Details = () => {
       </div>
       <div className="detail__description">
         <div>
-          <h2 className="detail__name">{state.name}</h2>
+          <h2 className="detail__name">
+            {state.name}{' '}
+            {user && state.isFavorite === true && (
+              <i className="fas fa-star" onClick={handleDeleteFav}></i>
+            )}
+            {user && state.isFavorite === false && (
+              <i className="far fa-star" onClick={handleAddFav}></i>
+            )}
+          </h2>
           <div>
             <h2 className="detail__title">Ingredients:</h2>
           </div>
@@ -111,7 +153,7 @@ const Details = () => {
             {state.ingredients.map((e, index) => {
               if (e !== null && e !== '') {
                 return (
-                  <li>
+                  <li key={index}>
                     {e}: {state.amount[index]}
                   </li>
                 );
@@ -123,7 +165,7 @@ const Details = () => {
           <h3 className="detail__subtitle">Recipe:</h3>
           <div className="detail__recipe">{state.recipe}</div>
           <i
-            class="detail__share far fa-share-square"
+            className="detail__share far fa-share-square"
             onClick={handleShare}
           ></i>
         </div>

@@ -5,7 +5,7 @@ import userReducer from '../reducer/userReducer';
 import CocktailsApi from '../services/CocktailsAPI';
 import UsersAPI from '../services/UsersAPI';
 
-const DataContext = createContext();
+export const DataContext = createContext();
 
 const DataContextProvider = (props) => {
   const { user } = useAuth0();
