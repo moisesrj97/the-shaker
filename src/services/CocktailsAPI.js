@@ -40,9 +40,8 @@ export default class CocktailsApi {
   }
 
   static async searchCocktailByMultipleIngredients(ingredientsArr) {
-    const ingredientsStr = ingredientsArr.join();
     const response = await axios.get(
-      baseURL + 'filter.php?i=' + ingredientsStr
+      baseURL + 'filter.php?i=' + ingredientsArr
     );
     return response.data;
   }

@@ -8,7 +8,7 @@ const Favorites = () => {
   if (store.user.fav.length < 2) {
     return (
       <div>
-        <p className="favorites">No hay favoritos</p>
+        <p className="favorites">No cocktails to show!</p>
       </div>
     );
   } else

@@ -84,7 +84,7 @@ const Details = () => {
     } else {
       setState({ ...state, isFavorite: false, favoriteId: '' });
     }
-  }, [store]);
+  }, [store, state.id]);
 
   const handleShare = async () => {
     const response = await fetch(state.img);
@@ -140,10 +140,16 @@ const Details = () => {
           <h2 className="detail__name">
             {state.name}{' '}
             {user && state.isFavorite === true && (
-              <i className="fas fa-star" onClick={handleDeleteFav}></i>
+              <i
+                className="detail__star fas fa-star"
+                onClick={handleDeleteFav}
+              ></i>
             )}
             {user && state.isFavorite === false && (
-              <i className="far fa-star" onClick={handleAddFav}></i>
+              <i
+                className=" detail__star far fa-star"
+                onClick={handleAddFav}
+              ></i>
             )}
           </h2>
           <div>
