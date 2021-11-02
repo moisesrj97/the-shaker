@@ -165,14 +165,14 @@ const SearchForm = (props) => {
           );
         })}
       </select>
-      <ul class="form__ingredients">
+      <ul className="form__ingredients">
         {state.type === 'byIngredient' &&
           state.query.map((e, index) => {
             return (
               <li key={index}>
                 {e}
                 <i
-                  class="far fa-trash-alt"
+                  className="far fa-trash-alt"
                   onClick={() =>
                     setState({
                       ...state,
@@ -186,7 +186,7 @@ const SearchForm = (props) => {
             );
           })}
       </ul>
-      <button onClick={handleSearch} class="form__button">
+      <button onClick={handleSearch} className="form__button">
         Shake it!
       </button>
     </div>

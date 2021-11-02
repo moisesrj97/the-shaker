@@ -57,11 +57,7 @@ const NavBar = () => {
           )}
         </ul>
         <div className="navbar__mobile-menu">
-          <Hamburger
-            toggled={isOpen}
-            toggle={setOpen}
-            onBlur={() => setOpen(false)}
-          />
+          <Hamburger toggled={isOpen} toggle={setOpen} />
           {isOpen && (
             <ul className="navbar__mobile-ul">
               <li className="navbar__mobile-ul-list">
