@@ -78,5 +78,5 @@ test('renders Thumbnail', () => {
   expect(screen.getByText(/Army special/i)).toBeInTheDocument();
   expect(screen.getByText(/Cherry Electric Lemonade/i)).toBeInTheDocument();
 
-  expect(screen.getAllByRole('img')).toHaveLength(9);
+  expect(screen.getAllByRole('img')).toHaveLength();
 });

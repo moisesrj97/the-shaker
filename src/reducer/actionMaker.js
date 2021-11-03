@@ -4,6 +4,9 @@ import {
   ADD_FAV,
   REMOVE_FAV,
   LOAD_LISTS,
+  CREATE_CUSTOM,
+  REMOVE_CUSTOM,
+  UPDATE_CUSTOM,
 } from './actionTypes';
 
 export const loginUser = (response) => {
@@ -36,6 +39,29 @@ export const removeFav = (response) => {
 export const loadList = (response) => {
   return {
     type: LOAD_LISTS,
+    payload: response,
+  };
+};
+
+/* --------------------------- */
+
+export const createCustom = (response) => {
+  return {
+    type: CREATE_CUSTOM,
+    payload: response,
+  };
+};
+
+export const removeCustom = (response) => {
+  return {
+    type: REMOVE_CUSTOM,
+    payload: response,
+  };
+};
+
+export const updateCustom = (response) => {
+  return {
+    type: UPDATE_CUSTOM,
     payload: response,
   };
 };

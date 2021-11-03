@@ -9,7 +9,13 @@
           "thumb": "",
           "apiId": ""
         },
-        {}
+        {},
+        {
+          "name": "Bobby Burns Cocktail",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/km6se51484411608.jpg",
+          "apiId": "11121",
+          "id": "e1edb96e-599b-4e0d-aab6-9e73ac8290b4"
+        }
       ],
       "custom": [
         {
@@ -19,46 +25,14 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
     },
     {
       "id": "berserksnake976@gmail.com",
-      "fav": [
-        {
-          "id": "",
-          "name": "",
-          "thumb": "",
-          "apiId": ""
-        }
-      ],
-      "custom": [
-        {
-          "name": "",
-          "thumb": "",
-          "recipe": "",
-          "type": "",
-          "glass": "",
-          "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
-          "id": ""
-        }
-      ]
-    },
-    {
-      "id": "moisesrj97@gmail.com",
       "fav": [
         {
           "id": "",
@@ -87,12 +61,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]
@@ -121,12 +91,8 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [
-            ""
-          ],
-          "ingredientesAmount": [
-            ""
-          ],
+          "ingredientes": [""],
+          "ingredientesAmount": [""],
           "id": ""
         }
       ]

@@ -6,6 +6,8 @@ export default class CocktailsApi {
   //Search cocktail methods
   static async searchByCocktailName(name) {
     const response = await axios.get(baseURL + 'search.php?s=' + name);
+    console.log(response);
+    console.log(response.data);
     return response.data;
   }
 
