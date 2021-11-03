@@ -4,10 +4,11 @@ import {
   ADD_FAV,
   LOAD_LISTS,
   REMOVE_FAV,
+  CREATE_CUSTOM,
 } from './actionTypes';
 
 const userReducer = (state, action) => {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case LOGIN_USER:
       return { ...state, user: { ...action.payload } };
@@ -62,6 +63,12 @@ const userReducer = (state, action) => {
           ingredients: action.payload[3],
         },
       };
+    case CREATE_CUSTOM:
+      return {
+        ...state,
+        user: { ...state.user, custom: [...state.user.custom, action.payload] },
+      };
+
     default:
       throw new Error('Unknown action type');
   }
