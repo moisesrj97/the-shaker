@@ -106,6 +106,7 @@ const DetailsCustom = () => {
                     })
                   }
                   className="detail__star fas fa-pencil-alt"
+                  data-testid="edit-button"
                 ></i>
               </div>
               <div>
@@ -134,6 +135,7 @@ const DetailsCustom = () => {
               <i
                 className="detail__share far fa-trash-alt"
                 onClick={handleDelete}
+                data-testid="delete-button"
               ></i>
             </div>
           </div>

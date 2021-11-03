@@ -240,7 +240,7 @@ const FormCustom = () => {
                   value={e.amount}
                   onChange={handleIngredientInput}
                   name={e.name}
-                  className="form__input-text"
+                  className="form__input-text-custom"
                 />
               </div>
             );

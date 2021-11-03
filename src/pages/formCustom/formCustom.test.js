@@ -115,7 +115,43 @@ test('create cocktail', async () => {
 
   fireEvent.click(screen.getByText(/add/i));
 
-  expect(await screen.findByText(/My custom/i)).toBeInTheDocument();
+  expect(await screen.findAllByText(/My custom/i)).toBeTruthy();
+
+  expect(1 + 1).toBe(2);
+});
+
+test('modify cocktail', async () => {
+  useAuth0.mockReturnValue({
+    isAuthenticated: true,
+    user,
+    logout: jest.fn(),
+    loginWithRedirect: jest.fn(),
+  });
+
+  const history = createMemoryHistory();
+  history.push('/custom');
+
+  render(
+    <DataContextProvider>
+      <Router history={history}>
+        <App />
+      </Router>
+    </DataContextProvider>
+  );
+
+  const inputs = await screen.findAllByText(/my custom/i);
+
+  fireEvent.click(inputs[0]);
+
+  fireEvent.click(await screen.findByTestId('edit-button'));
+
+  fireEvent.change(screen.getByLabelText(/name/i), {
+    target: { value: 'El mio custom' },
+  });
+
+  fireEvent.click(screen.getByText(/add/i));
+
+  expect(await screen.findAllByText(/El mio custom/i)).toBeTruthy();
 
   expect(1 + 1).toBe(2);
 });
