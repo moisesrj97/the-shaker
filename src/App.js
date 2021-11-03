@@ -8,6 +8,7 @@ import SearchPage from './pages/search/SearchPage';
 import Favorites from './pages/favorites/Favorites';
 import CustomPage from './pages/customPage/CustomPage';
 import FormCustom from './pages/formCustom/formCustom';
+import DetailsCustom from './pages/detailsCustom/DetailsCustom';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/details/:id">
             <Details />
+          </Route>
+          <Route exact path="/details-custom/:id">
+            <DetailsCustom />
           </Route>
           <Route exact path="/search/">
             <SearchPage />

@@ -15,8 +15,16 @@
   }
 }
 
+.gallery-custom {
+  height: 70vh;
+}
+
 @media (max-width: 600px) {
   .gallery {
+    height: 100%;
+  }
+
+  .gallery-custom {
     height: 100%;
   }
 }

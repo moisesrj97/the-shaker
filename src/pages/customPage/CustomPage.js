@@ -1,8 +1,8 @@
 import './CustomPage.scss';
 import { useHistory } from 'react-router-dom';
-import ThumbnailGallery from '../../components/thumbnailGallery/ThumbnailGallery';
 import { DataContext } from '../../context/DataContext';
 import { useContext } from 'react';
+import ThumbnailGalleryCustom from '../../components/thumbnailGalleryCustom/ThumbnailGalleryCustom';
 
 const CustomPage = () => {
   let history = useHistory();
@@ -10,14 +10,14 @@ const CustomPage = () => {
   const { store } = useContext(DataContext);
 
   return (
-    <div>
+    <div class="custom">
       <button
         className="add-button"
         onClick={() => history.push('/create-custom')}
       >
         Add +
       </button>
-      <ThumbnailGallery
+      <ThumbnailGalleryCustom
         sampleData={{
           drinks: store.user.custom.filter((e, index) => index > 0),
         }}

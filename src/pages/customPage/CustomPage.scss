@@ -1,6 +1,6 @@
 .add-button {
-  margin-top: 100px;
   padding: 20px 40px;
+  margin-bottom: 20px;
   color: white;
   box-sizing: border-box;
   border-radius: 25px;
@@ -17,4 +17,13 @@
       0 0 80px #f44bfc, 0 0 90px #f44bfc, 0 0 100px #f44bfc, 0 0 150px #f44bfc;
     transition: all 0.1s;
   }
+}
+
+.custom {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
