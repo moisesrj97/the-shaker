@@ -21,11 +21,6 @@ export default class CocktailsApi {
     return response.data;
   }
 
-  static async searchCocktailByIngredient(ingredient) {
-    const response = await axios.get(baseURL + 'filter.php?i=' + ingredient);
-    return response.data;
-  }
-
   static async searchCocktailByAlcoholic(alcoholic) {
     const response = await axios.get(baseURL + 'filter.php?a=' + alcoholic);
     return response.data;
@@ -50,16 +45,6 @@ export default class CocktailsApi {
 
   static async searchRandomCocktail() {
     const response = await axios.get(baseURL + 'random.php');
-    return response.data;
-  }
-  //Search ingredient methods
-  static async searchIngredientByName(name) {
-    const response = await axios.get(baseURL + 'search.php?i=' + name);
-    return response.data;
-  }
-
-  static async searchIngredientById(id) {
-    const response = await axios.get(baseURL + 'lookup.php?iid=' + id);
     return response.data;
   }
   //Search lists methods

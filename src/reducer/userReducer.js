@@ -93,7 +93,7 @@ const userReducer = (state, action) => {
       };
 
     default:
-      throw new Error('Unknown action type');
+      return state;
   }
 };
 

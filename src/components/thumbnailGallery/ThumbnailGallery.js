@@ -3,7 +3,6 @@ import Thumbnail from '../thumbnail/Thumbnail';
 import './ThumbnailGallery.scss';
 
 const ThumbnailGallery = (props) => {
-  console.log(props);
   if (
     props.sampleData.drinks !== null &&
     props.sampleData.drinks.length >= 1 &&
@@ -17,7 +16,7 @@ const ThumbnailGallery = (props) => {
       </div>
     );
   } else {
-    return <h2 class="favorites">No cocktails to show!</h2>;
+    return <h2 className="favorites">No cocktails to show!</h2>;
   }
 };
 

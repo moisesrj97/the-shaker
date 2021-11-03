@@ -4,6 +4,7 @@
   gap: 5px;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 }
 
 .detail__image {
@@ -61,7 +62,9 @@
 
 .detail__header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   font-family: 'Dancing Script', cursive;
   text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
     0 0 80px #f44bfc;
@@ -72,11 +75,10 @@
   display: flex;
   margin-left: 40px;
   font-size: 5rem;
+  text-align: center;
 }
 
 .detail__star {
-  margin-left: 10px;
-  margin-top: 20px;
   cursor: pointer;
   font-size: 4rem;
 }
@@ -116,7 +118,7 @@
     0 0 80px #f44bfc;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .detail {
     display: flex;
     flex-direction: column;
@@ -137,7 +139,7 @@
 
   .detail__hashtag {
     justify-content: space-evenly;
-    gap: 40px;
+    gap: 5px;
   }
 
   .detail__description {
@@ -151,13 +153,13 @@
   .detail__header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .detail__name {
     font-size: 3rem;
-    font-family: 'Dancing Script', cursive;
-    text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
-      0 0 80px #f44bfc;
-    width: 100%;
+    margin: 0;
+    text-align: center;
   }
 }
