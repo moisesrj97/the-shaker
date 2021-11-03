@@ -25,8 +25,12 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": ""
         }
       ]
@@ -61,8 +65,12 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": ""
         }
       ]
@@ -91,9 +99,60 @@
           "type": "",
           "glass": "",
           "alcoholic": "",
-          "ingredientes": [""],
-          "ingredientesAmount": [""],
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
           "id": ""
+        }
+      ]
+    },
+    {
+      "id": "moisesrj97@gmail.com",
+      "fav": [
+        {
+          "id": "",
+          "name": "",
+          "thumb": "",
+          "apiId": ""
+        }
+      ],
+      "custom": [
+        {
+          "name": "",
+          "thumb": "",
+          "recipe": "",
+          "type": "",
+          "glass": "",
+          "alcoholic": "",
+          "ingredientes": [
+            ""
+          ],
+          "ingredientesAmount": [
+            ""
+          ],
+          "id": ""
+        },
+        {
+          "name": "pepe",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview",
+          "recipe": "Hacer muchas cosas",
+          "type": "Cocktail",
+          "glass": "Cocktail glass",
+          "alcoholic": "Optional alcohol",
+          "ingredientes": [
+            "",
+            "Amaro Montenegro",
+            "Absolut Peppar"
+          ],
+          "ingredientesAmount": [
+            "",
+            "123",
+            "321"
+          ],
+          "id": "32048b1b-0d9d-4605-84d0-7ae46a0d7382"
         }
       ]
     }
