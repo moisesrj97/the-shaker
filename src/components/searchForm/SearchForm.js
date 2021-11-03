@@ -10,7 +10,6 @@ const SearchForm = (props) => {
   const [state, setState] = useState({ type: '', query: [''] });
 
   const { store } = useContext(DataContext);
-  console.log(store);
 
   const handleChange = (evt) => {
     if (state.type === 'byIngredient' && evt.target.name === 'byIngredient') {

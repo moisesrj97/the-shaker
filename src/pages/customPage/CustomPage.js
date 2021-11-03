@@ -10,7 +10,7 @@ const CustomPage = () => {
   const { store } = useContext(DataContext);
 
   return (
-    <div class="custom">
+    <div className="custom">
       <button
         className="add-button"
         onClick={() => history.push('/create-custom')}

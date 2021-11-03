@@ -78,9 +78,11 @@
   text-align: center;
 }
 
-.detail__star {
+.detail__star,
+.detail__header a {
   cursor: pointer;
   font-size: 4rem;
+  color: white;
 }
 
 .detail__title {

@@ -10,7 +10,6 @@ import {
 } from './actionTypes';
 
 const userReducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case LOGIN_USER:
       return { ...state, user: { ...action.payload } };
@@ -84,7 +83,6 @@ const userReducer = (state, action) => {
         user: {
           ...state.user,
           custom: state.user.custom.map((e) => {
-            console.log();
             if (e.id === action.payload.id) {
               return { ...action.payload };
             } else {

@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { DataContext } from '../../context/DataContext';
 import UsersApi from '../../services/UsersAPI';
 import UsersAPI from '../../services/UsersAPI';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { removeCustom } from '../../reducer/actionMaker';
 
 const DetailsCustom = () => {
@@ -98,6 +98,15 @@ const DetailsCustom = () => {
             <div>
               <div className="detail__header">
                 <p className="detail__name">{state.name}</p>
+                <i
+                  onClick={() =>
+                    history.push({
+                      pathname: '/create-custom',
+                      data: state,
+                    })
+                  }
+                  className="detail__star fas fa-pencil-alt"
+                ></i>
               </div>
               <div>
                 <h2 className="detail__title">Ingredients:</h2>

@@ -78,5 +78,17 @@ test('renders Thumbnail', () => {
   expect(screen.getByText(/Army special/i)).toBeInTheDocument();
   expect(screen.getByText(/Cherry Electric Lemonade/i)).toBeInTheDocument();
 
-  expect(screen.getAllByRole('img')).toHaveLength();
+  expect(screen.getAllByRole('img')).toHaveLength(9);
+});
+
+test('renders Thumbnail without cocktails', () => {
+  const history = createMemoryHistory();
+  history.push('/');
+
+  render(
+    <Router history={history}>
+      <ThumbnailGallery sampleData={{ drinks: null }} />
+    </Router>
+  );
+  expect(screen.getByText(/No cocktails to show!/i)).toBeInTheDocument();
 });

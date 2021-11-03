@@ -661,7 +661,6 @@ test('search by name', async () => {
     target: { value: 'Margarita' },
   });
 
-  console.log(prettyDOM(document));
 
   fireEvent.click(screen.getByText(/shake it/i));
 
