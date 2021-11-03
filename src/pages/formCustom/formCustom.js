@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { DataContext } from '../../context/DataContext';
 import { createCustom } from '../../reducer/actionMaker';
 import UsersAPI from '../../services/UsersAPI';
+import './formCustom.scss';
 
 const FormCustom = () => {
   const [state, setState] = useState({
@@ -50,27 +51,51 @@ const FormCustom = () => {
   };
 
   return (
-    <>
-      <h2>Create Cocktail</h2>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" onChange={handleChange} />
+    <div className="boxForm">
+      <h2 className="favorites">Create Cocktail</h2>
+      <div className="">
+        <label className="form__label" htmlFor="name">
+          Name
+        </label>
+        <input
+          className="form__input-text"
+          type="text"
+          id="name"
+          name="name"
+          onChange={handleChange}
+        />
       </div>
       <div>
-        <label htmlFor="thumb">Image URL</label>
-        <input type="text" id="thumb" name="thumb" onChange={handleChange} />
+        <label className="form__label" htmlFor="thumb">
+          Image URL
+        </label>
+        <input
+          className="form__input-text"
+          type="text"
+          id="thumb"
+          name="thumb"
+          onChange={handleChange}
+        />
       </div>
 
       <div>
-        <label htmlFor="recipe">Recipe</label>
-        <input type="text" id="recipe" name="recipe" onChange={handleChange} />
+        <label className="form__label" htmlFor="recipe">
+          Recipe
+        </label>
+        <input
+          className="form__input-text"
+          type="text"
+          id="recipe"
+          name="recipe"
+          onChange={handleChange}
+        />
       </div>
       <div>
-        <label className="" htmlFor="type">
+        <label className="form__label" htmlFor="type">
           Type:
         </label>
         <select
-          className=""
+          className="form__input-select"
           id="type"
           name="type"
           defaultValue="default"
@@ -89,11 +114,11 @@ const FormCustom = () => {
         </select>
       </div>
       <div>
-        <label className="" htmlFor="glass">
+        <label className="form__label" htmlFor="glass">
           Glass:
         </label>
         <select
-          className=""
+          className="form__input-select"
           id="glass"
           name="glass"
           defaultValue="default"
@@ -112,11 +137,11 @@ const FormCustom = () => {
         </select>
       </div>
       <div>
-        <label className="" htmlFor="alcoholic">
+        <label className="form__label" htmlFor="alcoholic">
           Alcoholic:
         </label>
         <select
-          className=""
+          className="form__input-select"
           id="alcoholic"
           name="alcoholic"
           defaultValue="default"
@@ -135,11 +160,11 @@ const FormCustom = () => {
         </select>
       </div>
       <div>
-        <label className="" htmlFor="ingredientes">
+        <label className="form__label" htmlFor="ingredientes">
           Ingredients:
         </label>
         <select
-          className=""
+          className="form__input-select"
           id="ingredientes"
           name="ingredientes"
           defaultValue="default"
@@ -166,8 +191,8 @@ const FormCustom = () => {
         {ingredients.map((e, index) => {
           if (index > 0) {
             return (
-              <div key={index}>
-                <label>{e.name}</label>
+              <div className="form__label-div" key={index}>
+                <label className="form__label-custom">{e.name}</label>
                 <i
                   className="far fa-trash-alt"
                   onClick={() =>
@@ -179,10 +204,12 @@ const FormCustom = () => {
                   }
                 ></i>
                 <input
+                  placeholder="Add amount"
                   type="text"
                   value={e.amount}
                   onChange={handleIngredientInput}
                   name={e.name}
+                  className="form__input-text"
                 />
               </div>
             );
@@ -192,7 +219,7 @@ const FormCustom = () => {
       <button onClick={handleSubmit} className="add-button">
         Add
       </button>
-    </>
+    </div>
   );
 };
 
