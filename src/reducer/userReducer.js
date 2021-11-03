@@ -4,10 +4,13 @@ import {
   ADD_FAV,
   LOAD_LISTS,
   REMOVE_FAV,
+  CREATE_CUSTOM,
+  REMOVE_CUSTOM,
+  UPDATE_CUSTOM,
 } from './actionTypes';
 
 const userReducer = (state, action) => {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case LOGIN_USER:
       return { ...state, user: { ...action.payload } };
@@ -62,6 +65,33 @@ const userReducer = (state, action) => {
           ingredients: action.payload[3],
         },
       };
+    case CREATE_CUSTOM:
+      return {
+        ...state,
+        user: { ...state.user, custom: [...state.user.custom, action.payload] },
+      };
+    case REMOVE_CUSTOM:
+      return {
+        ...state,
+        user: {
+          ...state.user.custom.filter((e) => e.id !== action.payload),
+        },
+      };
+    case UPDATE_CUSTOM:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          custom: state.user.custom.map((e) => {
+            if (e.id === action.payload.id) {
+              return { ...action.payload.updatedCustom };
+            } else {
+              return { ...e };
+            }
+          }),
+        },
+      };
+
     default:
       throw new Error('Unknown action type');
   }
