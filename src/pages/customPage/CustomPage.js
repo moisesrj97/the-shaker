@@ -1,9 +1,11 @@
 import './CustomPage.scss';
 
 const CustomPage = () => {
+  let history = useHistory();
+
   return (
-    <div class="add-button">
-      <button onClick="">Add +</button>
+    <div>
+      <button onClick={() => history.push('/create-custom')}>Add +</button>
     </div>
   );
 };
