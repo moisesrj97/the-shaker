@@ -1,6 +1,8 @@
+import './CustomPage.scss';
+
 const CustomPage = () => {
   return (
-    <div>
+    <div class="add-button">
       <button onClick="">Add +</button>
     </div>
   );
