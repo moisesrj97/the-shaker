@@ -1,7 +1,11 @@
+import { useHistory } from 'react-router';
+
 const CustomPage = () => {
+  let history = useHistory();
+
   return (
     <div>
-      <button onClick="">Add +</button>
+      <button onClick={() => history.push('/create-custom')}>Add +</button>
     </div>
   );
 };
