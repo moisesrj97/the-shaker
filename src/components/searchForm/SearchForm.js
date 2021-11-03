@@ -10,6 +10,7 @@ const SearchForm = (props) => {
   const [state, setState] = useState({ type: '', query: [''] });
 
   const { store } = useContext(DataContext);
+  console.log(store);
 
   const handleChange = (evt) => {
     if (state.type === 'byIngredient' && evt.target.name === 'byIngredient') {
@@ -41,6 +42,7 @@ const SearchForm = (props) => {
 
   return (
     <div className="form">
+      <h3>Searching by: {state.query.join(', ')}</h3>
       <label className="form__label" htmlFor="byName" onClick={handleDropdowns}>
         By name:
       </label>
@@ -63,8 +65,9 @@ const SearchForm = (props) => {
         className="form__input-select hidden"
         id="byLetter"
         name="byLetter"
+        defaultValue={'default'}
       >
-        <option defaultValue disabled>
+        <option hidden value="default">
           Select an option...
         </option>
         {alphabet.map((e, index) => {
@@ -87,8 +90,11 @@ const SearchForm = (props) => {
         className="form__input-select hidden"
         id="byAlcoholic"
         name="byAlcoholic"
+        defaultValue="default"
       >
-        <option disabled>Select an option...</option>
+        <option disabled hidden value="default">
+          Select an option...
+        </option>
         {store.lists.alcoholic.map((e, index) => {
           return (
             <option key={index} value={e}>
@@ -105,8 +111,9 @@ const SearchForm = (props) => {
         className="form__input-select hidden"
         id="byType"
         name="byType"
+        defaultValue={'default'}
       >
-        <option defaultValue disabled>
+        <option hidden value="default">
           Select an option...
         </option>
         {store.lists.types.map((e, index) => {
@@ -129,8 +136,9 @@ const SearchForm = (props) => {
         className="form__input-select hidden"
         id="byGlass"
         name="byGlass"
+        defaultValue={'default'}
       >
-        <option defaultValue disabled>
+        <option value="default" hidden disabled>
           Select an option...
         </option>
         {store.lists.glasses.map((e, index) => {
@@ -153,8 +161,9 @@ const SearchForm = (props) => {
         id="byIngredient"
         name="byIngredient"
         onChange={handleChange}
+        defaultValue={'default'}
       >
-        <option defaultValue disabled>
+        <option hidden value="default">
           Select up to 3 options...
         </option>
         {store.lists.ingredients.sort().map((e, index) => {
@@ -165,14 +174,14 @@ const SearchForm = (props) => {
           );
         })}
       </select>
-      <ul class="form__ingredients">
+      <ul className="form__ingredients">
         {state.type === 'byIngredient' &&
           state.query.map((e, index) => {
             return (
               <li key={index}>
                 {e}
                 <i
-                  class="far fa-trash-alt"
+                  className="far fa-trash-alt"
                   onClick={() =>
                     setState({
                       ...state,
@@ -186,7 +195,7 @@ const SearchForm = (props) => {
             );
           })}
       </ul>
-      <button onClick={handleSearch} class="form__button">
+      <button onClick={handleSearch} className="form__button">
         Shake it!
       </button>
     </div>

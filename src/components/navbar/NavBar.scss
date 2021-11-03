@@ -43,6 +43,9 @@
 .navbar__ul-list:hover a {
   text-decoration: underline;
 }
+.hamburger-react {
+  z-index: 3;
+}
 
 .navbar__mobile {
   &-menu {
@@ -51,19 +54,20 @@
   &-ul {
     position: fixed;
     right: 0;
-    top: 30px;
+    top: 0px;
+    padding: 30px;
+    padding-top: 60px;
     list-style-type: none;
     text-align: right;
-    padding: 30px;
-    font-size: 1rem;
+    font-size: 1.4rem;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.144);
+    background-color: rgba(0, 0, 0, 0.568);
   }
   &-ul-list a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding: 5px 0;
+    font-size: 1.4rem;
+    padding: 10px 0;
   }
 }
 

@@ -61,7 +61,7 @@ const NavBar = () => {
           {isOpen && (
             <ul className="navbar__mobile-ul">
               <li className="navbar__mobile-ul-list">
-                <Link to="/">Cocktails</Link>
+                <Link to="/search">Cocktails</Link>
               </li>
               {user && (
                 <>
