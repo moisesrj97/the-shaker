@@ -84,8 +84,9 @@ const userReducer = (state, action) => {
         user: {
           ...state.user,
           custom: state.user.custom.map((e) => {
+            console.log();
             if (e.id === action.payload.id) {
-              return { ...action.payload.updatedCustom };
+              return { ...action.payload };
             } else {
               return { ...e };
             }
