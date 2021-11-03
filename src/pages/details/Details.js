@@ -188,6 +188,7 @@ const Details = () => {
               <i
                 className="detail__share far fa-share-square"
                 onClick={handleShare}
+                data-testid="share-icon"
               ></i>
             </div>
           </div>
