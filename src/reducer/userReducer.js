@@ -74,7 +74,8 @@ const userReducer = (state, action) => {
       return {
         ...state,
         user: {
-          ...state.user.custom.filter((e) => e.id !== action.payload),
+          ...state.user,
+          custom: state.user.custom.filter((e) => e.id !== action.payload),
         },
       };
     case UPDATE_CUSTOM:

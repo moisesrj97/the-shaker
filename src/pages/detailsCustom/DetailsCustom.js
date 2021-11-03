@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import CocktailsApi from '../../services/CocktailsAPI';
 import { DataContext } from '../../context/DataContext';
 import UsersApi from '../../services/UsersAPI';
-import { useAuth0 } from '@auth0/auth0-react';
-import { addFav, removeFav } from '../../reducer/actionMaker';
 import UsersAPI from '../../services/UsersAPI';
+import { useHistory } from 'react-router-dom';
+import { removeCustom } from '../../reducer/actionMaker';
 
 const DetailsCustom = () => {
   const { store, dispatch } = useContext(DataContext);
@@ -24,7 +23,7 @@ const DetailsCustom = () => {
   });
 
   const { id } = useParams();
-  const { user } = useAuth0();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchedCocktail = store.user.custom.find((e) => e.id === id);
@@ -45,7 +44,7 @@ const DetailsCustom = () => {
         amount: fetchedCocktail.ingredientesAmount,
       });
     }
-  }, []);
+  }, [id, state.id]);
 
   const handleShare = async () => {
     const response = await fetch(state.img);
@@ -57,6 +56,13 @@ const DetailsCustom = () => {
       title: state.name,
       text: state.name + ': ' + state.recipe,
       files: [file],
+    });
+  };
+
+  const handleDelete = () => {
+    UsersAPI.removeCustom(store.user.id, state.id).then((response) => {
+      dispatch(removeCustom(state.id));
+      history.push('/custom');
     });
   };
 
@@ -115,6 +121,10 @@ const DetailsCustom = () => {
                 className="detail__share far fa-share-square"
                 onClick={handleShare}
                 data-testid="share-icon"
+              ></i>
+              <i
+                className="detail__share far fa-trash-alt"
+                onClick={handleDelete}
               ></i>
             </div>
           </div>
