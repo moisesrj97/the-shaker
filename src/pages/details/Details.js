@@ -17,7 +17,7 @@ const Details = () => {
     favoriteId: '',
     id: '',
     name: '',
-    img: '',
+    thumb: '',
     recipe: '',
     type: '',
     glass: '',
@@ -39,7 +39,7 @@ const Details = () => {
             ...state,
             id: response.drinks[0].idDrink,
             name: response.drinks[0].strDrink,
-            img: response.drinks[0].strDrinkThumb,
+            thumb: response.drinks[0].strDrinkThumb,
             recipe: response.drinks[0].strInstructions,
             type: response.drinks[0].strCategory,
             glass: response.drinks[0].strGlass,
@@ -94,7 +94,7 @@ const Details = () => {
   }, [store, state.id]);
 
   const handleShare = async () => {
-    const response = await fetch(state.img);
+    const response = await fetch(state.thumb);
     const blob = await response.blob();
     const file = new File([blob], 'image.jpg', { type: blob.type });
 
@@ -109,7 +109,7 @@ const Details = () => {
   const handleAddFav = async () => {
     UsersApi.addFavorite(store.user.id, {
       name: state.name,
-      thumb: state.img,
+      thumb: state.thumb,
       apiId: state.id,
     }).then((response) => dispatch(addFav(response)));
   };
@@ -129,7 +129,7 @@ const Details = () => {
       ) : (
         <>
           <div className="detail__image">
-            <img className="detail__image-photo" src={state.img} alt={''} />
+            <img className="detail__image-photo" src={state.thumb} alt={''} />
             <ul className="detail__hashtag">
               <li>
                 <button className="detail__button" type="submit">

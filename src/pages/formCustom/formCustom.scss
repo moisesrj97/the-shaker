@@ -36,3 +36,11 @@
   display: inline;
   margin-right: 15px;
 }
+
+@media (max-width: 600px) {
+  .add-button-custom {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+}

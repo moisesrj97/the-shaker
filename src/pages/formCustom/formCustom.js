@@ -19,7 +19,6 @@ const FormCustom = () => {
           type: '',
           glass: '',
           alcoholic: '',
-          img: '',
         }
       : { ...data, method: 'put' };
 
@@ -57,7 +56,6 @@ const FormCustom = () => {
       ...state,
       method: undefined,
       thumb: state.thumb,
-      img: state.thumb,
       ingredientes: ingredients.map((e) => e.name),
       ingredientesAmount: ingredients.map((e) => e.amount),
     };
@@ -103,7 +101,7 @@ const FormCustom = () => {
           id="thumb"
           name="thumb"
           onChange={handleChange}
-          value={state.thumb || state.img}
+          value={state.thumb}
         />
       </div>
 
