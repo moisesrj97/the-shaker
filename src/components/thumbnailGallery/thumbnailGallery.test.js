@@ -62,33 +62,38 @@ const sampleData = {
   ],
 };
 
-test('renders Thumbnail', () => {
-  const history = createMemoryHistory();
-  history.push('/');
+describe('Given the component ThumbnailGallery...', () => {
+  describe('When component is instantiated...', () => {
+    test('renders Thumbnail', () => {
+      const history = createMemoryHistory();
+      history.push('/');
 
-  render(
-    <Router history={history}>
-      <ThumbnailGallery sampleData={sampleData} />
-    </Router>
-  );
+      render(
+        <Router history={history}>
+          <ThumbnailGallery sampleData={sampleData} />
+        </Router>
+      );
 
-  expect(
-    screen.getByText(/Radioactive Long Island Iced Tea/i)
-  ).toBeInTheDocument();
-  expect(screen.getByText(/Army special/i)).toBeInTheDocument();
-  expect(screen.getByText(/Cherry Electric Lemonade/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Radioactive Long Island Iced Tea/i)
+      ).toBeInTheDocument();
+      expect(screen.getByText(/Army special/i)).toBeInTheDocument();
+      expect(screen.getByText(/Cherry Electric Lemonade/i)).toBeInTheDocument();
 
-  expect(screen.getAllByRole('img')).toHaveLength(9);
-});
+      expect(screen.getAllByRole('img')).toHaveLength(9);
+    });
+  });
+  describe('When component is instantiated and there are not cocktails...', () => {
+    test('renders Thumbnail without cocktails', () => {
+      const history = createMemoryHistory();
+      history.push('/');
 
-test('renders Thumbnail without cocktails', () => {
-  const history = createMemoryHistory();
-  history.push('/');
-
-  render(
-    <Router history={history}>
-      <ThumbnailGallery sampleData={{ drinks: null }} />
-    </Router>
-  );
-  expect(screen.getByText(/No cocktails to show!/i)).toBeInTheDocument();
+      render(
+        <Router history={history}>
+          <ThumbnailGallery sampleData={{ drinks: null }} />
+        </Router>
+      );
+      expect(screen.getByText(/No cocktails to show!/i)).toBeInTheDocument();
+    });
+  });
 });
