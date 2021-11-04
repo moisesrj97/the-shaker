@@ -603,270 +603,299 @@ const user = {
   sub: 'google-oauth2|2147627834623744883746',
 };
 
-jest.mock('@auth0/auth0-react');
+describe('Given the component SearchForm...', () => {
+  describe('When component is instantiated...', () => {
+    jest.mock('@auth0/auth0-react');
 
-test('search form show labels and toggles inputs', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+    test('search form show labels and toggles inputs', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
+
+      const history = createMemoryHistory();
+      history.push('/search');
+
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
+
+      expect(await screen.findByText(/by name/i)).toBeInTheDocument();
+      expect(await screen.findByText(/by letter/i)).toBeInTheDocument();
+      expect(await screen.findByText(/by alcoholic/i)).toBeInTheDocument();
+      expect(await screen.findByText(/by type/i)).toBeInTheDocument();
+      expect(await screen.findByText(/by glass/i)).toBeInTheDocument();
+      expect(await screen.findByText(/by ingredient/i)).toBeInTheDocument();
+      expect(await screen.findByText(/shake it!/i)).toBeInTheDocument();
+
+      fireEvent.click(await screen.findByText(/by name/i));
+      expect(await screen.findByRole('textbox')).toBeInTheDocument();
+
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and write an cocktail name...', () => {
+    test('search by name', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  expect(await screen.findByText(/by name/i)).toBeInTheDocument();
-  expect(await screen.findByText(/by letter/i)).toBeInTheDocument();
-  expect(await screen.findByText(/by alcoholic/i)).toBeInTheDocument();
-  expect(await screen.findByText(/by type/i)).toBeInTheDocument();
-  expect(await screen.findByText(/by glass/i)).toBeInTheDocument();
-  expect(await screen.findByText(/by ingredient/i)).toBeInTheDocument();
-  expect(await screen.findByText(/shake it!/i)).toBeInTheDocument();
+      fireEvent.input(screen.getByLabelText(/by name/i), {
+        target: { value: 'Margarita' },
+      });
 
-  fireEvent.click(await screen.findByText(/by name/i));
-  expect(await screen.findByRole('textbox')).toBeInTheDocument();
+      fireEvent.click(screen.getByText(/shake it/i));
 
-  expect(1 + 1).toBe(2);
-});
+      expect(await screen.findByText(/blue margarita/i)).toBeInTheDocument();
 
-test('search by name', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select an letter...', () => {
+    test('search by letter', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  fireEvent.input(screen.getByLabelText(/by name/i), {
-    target: { value: 'Margarita' },
+      userEvent.selectOptions(screen.getByLabelText('By Letter:'), 'M');
+
+      fireEvent.click(screen.getByText(/shake it/i));
+
+      expect(screen.getByRole('option', { name: 'M' }).selected).toBe(true);
+
+      expect(await screen.findByText('Mojito')).toBeInTheDocument();
+
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select if the cocktail has alcohol...', () => {
+    test('search by alcoholic', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  fireEvent.click(screen.getByText(/shake it/i));
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  expect(await screen.findByText(/blue margarita/i)).toBeInTheDocument();
+      userEvent.selectOptions(
+        screen.getByLabelText('By Alcoholic:'),
+        'Alcoholic'
+      );
 
-  expect(1 + 1).toBe(2);
-});
+      fireEvent.click(screen.getByText(/shake it/i));
 
-test('search by letter', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(await screen.findByText('1-900-FUK-MEUP')).toBeInTheDocument();
+
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select the type of cocktail...', () => {
+    test('search by type', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  userEvent.selectOptions(screen.getByLabelText('By Letter:'), 'M');
+      userEvent.selectOptions(
+        screen.getByLabelText('By Type:'),
+        'Ordinary Drink'
+      );
 
-  fireEvent.click(screen.getByText(/shake it/i));
+      fireEvent.click(screen.getByText(/shake it/i));
 
-  expect(screen.getByRole('option', { name: 'M' }).selected).toBe(true);
+      expect(await screen.findByText('410 Gone')).toBeInTheDocument();
 
-  expect(await screen.findByText('Mojito')).toBeInTheDocument();
-
-  expect(1 + 1).toBe(2);
-});
-
-test('search by alcoholic', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select the type of glass...', () => {
+    test('search by glass', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  userEvent.selectOptions(screen.getByLabelText('By Alcoholic:'), 'Alcoholic');
+      userEvent.selectOptions(
+        screen.getByLabelText('By Glass:'),
+        'Cocktail glass'
+      );
 
-  fireEvent.click(screen.getByText(/shake it/i));
+      fireEvent.click(screen.getByText(/shake it/i));
 
-  expect(await screen.findByText('1-900-FUK-MEUP')).toBeInTheDocument();
+      expect(await screen.findByText('A. J.')).toBeInTheDocument();
 
-  expect(1 + 1).toBe(2);
-});
-
-test('search by type', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select an ingredients...', () => {
+    test('search by single ingredient', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  userEvent.selectOptions(screen.getByLabelText('By Type:'), 'Ordinary Drink');
+      userEvent.selectOptions(
+        screen.getByLabelText('By Ingredient/s:'),
+        'Vodka'
+      );
 
-  fireEvent.click(screen.getByText(/shake it/i));
+      fireEvent.click(screen.getByText(/shake it/i));
 
-  expect(await screen.findByText('410 Gone')).toBeInTheDocument();
+      expect(await screen.findByText('155 Belmont')).toBeInTheDocument();
 
-  expect(1 + 1).toBe(2);
-});
-
-test('search by glass', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select more than one ingredient...', () => {
+    test('search by multiple ingredient', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  userEvent.selectOptions(screen.getByLabelText('By Glass:'), 'Cocktail glass');
+      userEvent.selectOptions(
+        screen.getByLabelText('By Ingredient/s:'),
+        'Vodka'
+      );
+      userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Gin');
 
-  fireEvent.click(screen.getByText(/shake it/i));
+      fireEvent.click(screen.getByText(/shake it/i));
 
-  expect(await screen.findByText('A. J.')).toBeInTheDocument();
+      expect(await screen.findByText('Army special')).toBeInTheDocument();
 
-  expect(1 + 1).toBe(2);
-});
-
-test('search by single ingredient', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(1 + 1).toBe(2);
+    });
   });
+  describe('When component is instantiated and select an ingredient one by one...', () => {
+    test('search by single ingredient deleting one', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/search');
+      const history = createMemoryHistory();
+      history.push('/search');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Vodka');
+      userEvent.selectOptions(
+        screen.getByLabelText('By Ingredient/s:'),
+        'Vodka'
+      );
+      userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Gin');
 
-  fireEvent.click(screen.getByText(/shake it/i));
+      userEvent.click(document.querySelector('.fa-trash-alt'));
 
-  expect(await screen.findByText('155 Belmont')).toBeInTheDocument();
+      fireEvent.click(screen.getByText(/shake it/i));
 
-  expect(1 + 1).toBe(2);
-});
+      expect(await screen.findByText('69 Special')).toBeInTheDocument();
 
-test('search by multiple ingredient', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(1 + 1).toBe(2);
+    });
   });
-
-  const history = createMemoryHistory();
-  history.push('/search');
-
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
-
-  userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Vodka');
-  userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Gin');
-
-  fireEvent.click(screen.getByText(/shake it/i));
-
-  expect(await screen.findByText('Army special')).toBeInTheDocument();
-
-  expect(1 + 1).toBe(2);
-});
-
-test('search by single ingredient deleting one', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
-  });
-
-  const history = createMemoryHistory();
-  history.push('/search');
-
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
-
-  userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Vodka');
-  userEvent.selectOptions(screen.getByLabelText('By Ingredient/s:'), 'Gin');
-
-  userEvent.click(document.querySelector('.fa-trash-alt'));
-
-  fireEvent.click(screen.getByText(/shake it/i));
-
-  expect(await screen.findByText('69 Special')).toBeInTheDocument();
-
-  expect(1 + 1).toBe(2);
 });

@@ -59,19 +59,23 @@ const sampleData = {
   ],
 };
 
-test('renders Thumbnail', () => {
-  const history = createMemoryHistory();
-  history.push('/custom');
+describe('Given the component ThumbnailGalleryCustom...', () => {
+  describe('When component is instantiated...', () => {
+    test('renders Thumbnail', () => {
+      const history = createMemoryHistory();
+      history.push('/custom');
 
-  render(
-    <Router history={history}>
-      <ThumbnailGalleryCustom sampleData={sampleData} />
-    </Router>
-  );
+      render(
+        <Router history={history}>
+          <ThumbnailGalleryCustom sampleData={sampleData} />
+        </Router>
+      );
 
-  expect(screen.getByText(/Momo/i)).toBeInTheDocument();
-  expect(screen.getByText(/Pepe/i)).toBeInTheDocument();
-  expect(screen.getByText(/Juan/i)).toBeInTheDocument();
+      expect(screen.getByText(/Momo/i)).toBeInTheDocument();
+      expect(screen.getByText(/Pepe/i)).toBeInTheDocument();
+      expect(screen.getByText(/Juan/i)).toBeInTheDocument();
 
-  expect(screen.getAllByRole('img')).toHaveLength(3);
+      expect(screen.getAllByRole('img')).toHaveLength(3);
+    });
+  });
 });

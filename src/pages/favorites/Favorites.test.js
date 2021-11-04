@@ -12,49 +12,56 @@ const user = {
   sub: 'google-oauth2|2147627834623744883746',
 };
 
-jest.mock('@auth0/auth0-react');
+describe('Given the component Favorites...', () => {
+  describe('When component is instantiated...', () => {
+    jest.mock('@auth0/auth0-react');
 
-test('renders favorites', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+    test('renders favorites', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
+
+      const history = createMemoryHistory();
+      history.push('/favorites');
+
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
+
+      expect(await screen.findByText(/Mock Cocktail/i)).toBeInTheDocument();
+      expect(screen.getByRole('img')).toBeInTheDocument();
+    });
   });
+  describe('When component is instantiated and user inst logged...', () => {
+    test('renders favorites', async () => {
+      useAuth0.mockReturnValue({
+        isAuthenticated: true,
+        user: undefined,
+        logout: jest.fn(),
+        loginWithRedirect: jest.fn(),
+      });
 
-  const history = createMemoryHistory();
-  history.push('/favorites');
+      const history = createMemoryHistory();
+      history.push('/favorites');
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  expect(await screen.findByText(/Mock Cocktail/i)).toBeInTheDocument();
-  expect(screen.getByRole('img')).toBeInTheDocument();
-});
-
-test('renders favorites', async () => {
-  useAuth0.mockReturnValue({
-    isAuthenticated: true,
-    user: undefined,
-    logout: jest.fn(),
-    loginWithRedirect: jest.fn(),
+      expect(
+        await screen.findByText(/No cocktails to show/i)
+      ).toBeInTheDocument();
+    });
   });
-
-  const history = createMemoryHistory();
-  history.push('/favorites');
-
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
-
-  expect(await screen.findByText(/No cocktails to show/i)).toBeInTheDocument();
 });
