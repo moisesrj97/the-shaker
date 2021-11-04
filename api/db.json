@@ -55,6 +55,18 @@
           "thumb": "https://www.thecocktaildb.com/images/media/drink/yyrwty1468877498.jpg",
           "apiId": "17060",
           "id": "e64ab96a-5ea1-42da-8a14-32e3b506a106"
+        },
+        {
+          "name": "Apple Pie with A Crust",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/qspqxt1472720078.jpg",
+          "apiId": "16958",
+          "id": "63511b60-b047-463b-92bc-af4e81628a0d"
+        },
+        {
+          "name": "Apple Slammer",
+          "thumb": "https://www.thecocktaildb.com/images/media/drink/09yd5f1493069852.jpg",
+          "apiId": "13683",
+          "id": "8e7710d0-4523-4ef9-959a-cc696fca6022"
         }
       ],
       "custom": [
