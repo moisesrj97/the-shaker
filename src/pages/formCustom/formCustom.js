@@ -19,6 +19,7 @@ const FormCustom = () => {
           type: '',
           glass: '',
           alcoholic: '',
+          img: '',
         }
       : { ...data, method: 'put' };
 
@@ -55,7 +56,8 @@ const FormCustom = () => {
     const newCocktail = {
       ...state,
       method: undefined,
-      thumb: state.img,
+      thumb: state.thumb,
+      img: state.thumb,
       ingredientes: ingredients.map((e) => e.name),
       ingredientesAmount: ingredients.map((e) => e.amount),
     };
@@ -83,7 +85,7 @@ const FormCustom = () => {
           Name
         </label>
         <input
-          className="form__input-text"
+          className="form__input-text  form__input-text-custom"
           type="text"
           id="name"
           name="name"
@@ -96,7 +98,7 @@ const FormCustom = () => {
           Image URL
         </label>
         <input
-          className="form__input-text"
+          className="form__input-text form__input-text-custom"
           type="text"
           id="thumb"
           name="thumb"
@@ -110,7 +112,7 @@ const FormCustom = () => {
           Recipe
         </label>
         <input
-          className="form__input-text"
+          className="form__input-text form__input-text-custom"
           type="text"
           id="recipe"
           name="recipe"
@@ -240,14 +242,14 @@ const FormCustom = () => {
                   value={e.amount}
                   onChange={handleIngredientInput}
                   name={e.name}
-                  className="form__input-text-custom"
+                  className="form__input-text form__input-text-custom"
                 />
               </div>
             );
           }
         })}
       </div>
-      <button onClick={handleSubmit} className="add-button">
+      <button onClick={handleSubmit} className="add-button add-button-custom">
         Add
       </button>
     </div>

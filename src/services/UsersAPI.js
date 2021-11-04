@@ -56,6 +56,7 @@ export default class UsersAPI {
   /* ----------------------------------------------- */
 
   static async createCustom(id, newCustom) {
+    console.log(newCustom);
     const { data } = await axios.get(baseURL + 'users/' + id);
     const response = await axios.patch(baseURL + 'users/' + id, {
       ...data,
@@ -65,6 +66,7 @@ export default class UsersAPI {
   }
 
   static async updateCustom(id, customId, editCustom) {
+    console.log(editCustom);
     const { data } = await axios.get(baseURL + 'users/' + id);
     const response = await axios.patch(baseURL + 'users/' + id, {
       ...data,
