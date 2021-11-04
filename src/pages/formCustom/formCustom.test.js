@@ -113,6 +113,10 @@ test('create cocktail', async () => {
 
   userEvent.selectOptions(await screen.findByLabelText(/ingredients/i), 'Gin');
 
+  fireEvent.change(await screen.findByLabelText(/Gin/i), {
+    target: { value: '125ml' },
+  });
+
   fireEvent.click(screen.getByText(/add/i));
 
   expect(await screen.findAllByText(/My custom/i)).toBeTruthy();

@@ -225,7 +225,9 @@ const FormCustom = () => {
           if (index > 0) {
             return (
               <div className="form__label-div" key={index}>
-                <label className="form__label-custom">{e.name}</label>
+                <label className="form__label-custom" htmlFor={e.name}>
+                  {e.name}
+                </label>
                 <i
                   className="far fa-trash-alt"
                   onClick={() =>
@@ -243,6 +245,7 @@ const FormCustom = () => {
                   onChange={handleIngredientInput}
                   name={e.name}
                   className="form__input-text form__input-text-custom"
+                  id={e.name}
                 />
               </div>
             );

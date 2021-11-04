@@ -55,3 +55,27 @@ test('renders Detail text', async () => {
     { timeout: 5000 }
   );
 });
+
+test('renders Detail text', async () => {
+  const history = createMemoryHistory();
+  history.push('/details-custom/6666666666');
+
+  useAuth0.mockReturnValue({
+    isAuthenticated: true,
+    user,
+    logout: jest.fn(),
+    loginWithRedirect: jest.fn(),
+  });
+
+  render(
+    <DataContextProvider>
+      <Router history={history}>
+        <App />
+      </Router>
+    </DataContextProvider>
+  );
+
+  expect(
+    await screen.findByText(/Sorry, we couldn't find your drink!/i)
+  ).toBeInTheDocument();
+});
