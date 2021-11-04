@@ -19,22 +19,22 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/details/:id">
+          <Route path="/details/:id">
             <Details />
           </Route>
-          <Route exact path="/details-custom/:id">
+          <Route path="/details-custom/:id">
             <DetailsCustom />
           </Route>
-          <Route exact path="/search/">
+          <Route path="/search/">
             <SearchPage />
           </Route>
-          <Route exact path="/favorites">
+          <Route path="/favorites">
             <Favorites />
           </Route>
-          <Route exact path="/custom">
+          <Route path="/custom">
             <CustomPage />
           </Route>
-          <Route exact path="/create-custom">
+          <Route path="/create-custom">
             <FormCustom />
           </Route>
         </Switch>
