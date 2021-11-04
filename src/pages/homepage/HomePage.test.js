@@ -4,35 +4,40 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import DataContextProvider from '../../context/DataContext';
 
-test('renders learn react link', () => {
-  const history = createMemoryHistory();
-  history.push('/');
+describe('Given the component homePage...', () => {
+  describe('When component is instanciated...', () => {
+    test('renders homepage info', () => {
+      const history = createMemoryHistory();
+      history.push('/');
 
-  render(
-    <Router history={history}>
-      <App />
-    </Router>
-  );
-  expect(screen.getByText(/the shaker/i)).toBeInTheDocument();
-  expect(screen.getByText(/It´s time to have fun/i)).toBeInTheDocument();
-  expect(screen.getByText(/Random Cocktail/i)).toBeInTheDocument();
-});
+      render(
+        <Router history={history}>
+          <App />
+        </Router>
+      );
+      expect(screen.getByText(/the shaker/i)).toBeInTheDocument();
+      expect(screen.getByText(/It´s time to have fun/i)).toBeInTheDocument();
+      expect(screen.getByText(/Random Cocktail/i)).toBeInTheDocument();
+    });
+  });
+  describe('When component is instanciated and random button clicked...', () => {
+    test('it goes to a random cocktail page', async () => {
+      const history = createMemoryHistory();
+      history.push('/');
 
-test('when click random button, it goes to a random cocktail page', async () => {
-  const history = createMemoryHistory();
-  history.push('/');
+      render(
+        <DataContextProvider>
+          <Router history={history}>
+            <App />
+          </Router>
+        </DataContextProvider>
+      );
 
-  render(
-    <DataContextProvider>
-      <Router history={history}>
-        <App />
-      </Router>
-    </DataContextProvider>
-  );
+      fireEvent.click(screen.getByText(/Random/i));
 
-  fireEvent.click(screen.getByText(/Random/i));
-
-  await waitFor(() => {
-    expect(history.location.pathname).toMatch(/\/details\/\d+/);
+      await waitFor(() => {
+        expect(history.location.pathname).toMatch(/\/details\/\d+/);
+      });
+    });
   });
 });
