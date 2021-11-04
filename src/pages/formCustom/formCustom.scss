@@ -8,6 +8,10 @@
   width: 300px;
 }
 
+.add-button-custom {
+  margin-top: 20px;
+}
+
 .form__label {
   display: flex;
   border-bottom: 1 px solid white;
@@ -16,7 +20,7 @@
   margin-right: 15 px;
 }
 
-.form__input-text {
+.form__input-text-custom {
   width: 100%;
   display: inline;
 }

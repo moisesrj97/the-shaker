@@ -74,7 +74,8 @@ const userReducer = (state, action) => {
       return {
         ...state,
         user: {
-          ...state.user.custom.filter((e) => e.id !== action.payload),
+          ...state.user,
+          custom: state.user.custom.filter((e) => e.id !== action.payload),
         },
       };
     case UPDATE_CUSTOM:
@@ -84,7 +85,7 @@ const userReducer = (state, action) => {
           ...state.user,
           custom: state.user.custom.map((e) => {
             if (e.id === action.payload.id) {
-              return { ...action.payload.updatedCustom };
+              return { ...action.payload };
             } else {
               return { ...e };
             }
