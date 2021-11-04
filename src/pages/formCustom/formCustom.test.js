@@ -19,11 +19,10 @@ const user = {
   email_verified: true,
   sub: 'google-oauth2|2147627834623744883746',
 };
+jest.mock('@auth0/auth0-react');
 
 describe('Given the component FormCustom...', () => {
   describe('When component is instantiated...', () => {
-    jest.mock('@auth0/auth0-react');
-
     test('custom form show labels and toggles inputs', async () => {
       useAuth0.mockReturnValue({
         isAuthenticated: true,

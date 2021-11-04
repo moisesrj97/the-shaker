@@ -596,6 +596,7 @@ const fakeValue = {
     },
   },
 };
+jest.mock('@auth0/auth0-react');
 
 const user = {
   email: 'johndoe@me.com',
@@ -605,8 +606,6 @@ const user = {
 
 describe('Given the component SearchForm...', () => {
   describe('When component is instantiated...', () => {
-    jest.mock('@auth0/auth0-react');
-
     test('search form show labels and toggles inputs', async () => {
       useAuth0.mockReturnValue({
         isAuthenticated: true,
