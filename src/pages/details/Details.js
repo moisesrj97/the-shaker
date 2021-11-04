@@ -6,7 +6,6 @@ import UsersApi from '../../services/UsersAPI';
 import './Details.scss';
 import { useAuth0 } from '@auth0/auth0-react';
 import { addFav, removeFav } from '../../reducer/actionMaker';
-import UsersAPI from '../../services/UsersAPI';
 
 const Details = () => {
   const { store, dispatch } = useContext(DataContext);
@@ -115,7 +114,7 @@ const Details = () => {
   };
 
   const handleDeleteFav = async () => {
-    UsersAPI.removeFavorite(store.user.id, state.favoriteId).then((response) =>
+    UsersApi.removeFavorite(store.user.id, state.favoriteId).then((response) =>
       dispatch(removeFav(state.favoriteId))
     );
   };

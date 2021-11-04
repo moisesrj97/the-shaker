@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { DataContext } from '../../context/DataContext';
-import UsersApi from '../../services/UsersAPI';
 import UsersAPI from '../../services/UsersAPI';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { removeCustom } from '../../reducer/actionMaker';
 
 const DetailsCustom = () => {
