@@ -33,3 +33,25 @@ code {
   filter: blur(1.5px);
   transform: scale(1.1);
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px; /*Si es barra vertical*/
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+  border-radius: 40px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f44bfc;
+}
