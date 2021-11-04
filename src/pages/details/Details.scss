@@ -4,14 +4,13 @@
   gap: 5px;
   justify-content: center;
   align-items: center;
+  min-width: 100%;
   max-width: 100%;
 }
 
 .detail__image {
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  aspect-ratio: 1;
   width: 30%;
   padding: 2px;
 }
@@ -19,6 +18,9 @@
   border-color: rgb(78, 46, 78);
   border-style: solid;
   border-radius: 25px;
+  width: 100%;
+  aspect-ratio: 1;
+
   box-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f4ecf5, 0 0 73px #fbb5ff,
     0 0 80px #ed00fa00;
 }
@@ -55,9 +57,8 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+  width: 50%;
   align-items: flex-start;
-
-  width: 40%;
 }
 
 .detail__header {
@@ -68,7 +69,6 @@
   font-family: 'Dancing Script', cursive;
   text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 38px #f44bfc, 0 0 73px #f44bfc,
     0 0 80px #f44bfc;
-  justify-content: center;
 }
 
 .detail__name {
@@ -82,6 +82,13 @@
 .detail__header a {
   cursor: pointer;
   font-size: 4rem;
+  color: white;
+}
+
+.detail__edit,
+.detail__header a {
+  cursor: pointer;
+  font-size: 3rem;
   color: white;
 }
 
@@ -163,5 +170,14 @@
     font-size: 3rem;
     margin: 0;
     text-align: center;
+  }
+  .detail__star,
+  .detail__header a {
+    margin-top: 10px;
+  }
+
+  .detail__edit,
+  .detail__header a {
+    margin-top: 10px;
   }
 }

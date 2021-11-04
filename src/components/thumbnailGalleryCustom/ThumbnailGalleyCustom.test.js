@@ -9,7 +9,8 @@ const sampleData = {
       status: '',
       id: 'cf8226da-0326-4936-9a5f-d2f5e4d0cba8',
       name: 'Momo',
-      img: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview',
+      thumb:
+        'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview',
       recipe: 'adad',
       type: 'Cocktail',
       glass: 'Cocktail glass',
@@ -25,7 +26,8 @@ const sampleData = {
       status: '',
       id: 'cf8226da-0326-4936-9a5f-d2f5e4d0cba8',
       name: 'Juan',
-      img: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview',
+      thumb:
+        'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview',
       recipe: 'adad',
       type: 'Cocktail',
       glass: 'Cocktail glass',
@@ -41,7 +43,8 @@ const sampleData = {
       status: '',
       id: 'cf8226da-0326-4936-9a5f-d2f5e4d0cba8',
       name: 'Pepe',
-      img: 'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview',
+      thumb:
+        'https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview',
       recipe: 'adad',
       type: 'Cocktail',
       glass: 'Cocktail glass',

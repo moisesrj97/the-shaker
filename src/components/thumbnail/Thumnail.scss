@@ -6,6 +6,11 @@
   border-radius: 5%;
   background-color: #604761;
   box-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 40px #f44bfc;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+  }
 
   &__img {
     width: 100%;

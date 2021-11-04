@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { DataContext } from '../../context/DataContext';
-import UsersApi from '../../services/UsersAPI';
 import UsersAPI from '../../services/UsersAPI';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { removeCustom } from '../../reducer/actionMaker';
 
 const DetailsCustom = () => {
@@ -13,7 +12,7 @@ const DetailsCustom = () => {
     status: '',
     id: '',
     name: '',
-    img: '',
+    thumb: '',
     recipe: '',
     type: '',
     glass: '',
@@ -35,7 +34,7 @@ const DetailsCustom = () => {
         ...state,
         id: fetchedCocktail.id,
         name: fetchedCocktail.name,
-        img: fetchedCocktail.thumb,
+        thumb: fetchedCocktail.thumb,
         recipe: fetchedCocktail.recipe,
         type: fetchedCocktail.type,
         glass: fetchedCocktail.glass,
@@ -47,7 +46,7 @@ const DetailsCustom = () => {
   }, [id, state.id]);
 
   const handleShare = async () => {
-    const response = await fetch(state.img);
+    const response = await fetch(state.thumb);
     const blob = await response.blob();
     const file = new File([blob], 'image.jpg', { type: blob.type });
 
@@ -75,7 +74,7 @@ const DetailsCustom = () => {
       ) : (
         <>
           <div className="detail__image">
-            <img className="detail__image-photo" src={state.img} alt={''} />
+            <img className="detail__image-photo" src={state.thumb} alt={''} />
             <ul className="detail__hashtag">
               <li>
                 <button className="detail__button" type="submit">
@@ -105,7 +104,7 @@ const DetailsCustom = () => {
                       data: state,
                     })
                   }
-                  className="detail__star fas fa-pencil-alt"
+                  className="detail__edit fas fa-pencil-alt"
                   data-testid="edit-button"
                 ></i>
               </div>

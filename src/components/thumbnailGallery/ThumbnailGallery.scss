@@ -1,5 +1,6 @@
 .gallery {
   display: flex;
+  padding-top: 30px;
 
   flex-wrap: wrap;
   flex-grow: 1;
@@ -22,6 +23,7 @@
 @media (max-width: 600px) {
   .gallery {
     height: 100%;
+    width: 100%;
   }
 
   .gallery-custom {
