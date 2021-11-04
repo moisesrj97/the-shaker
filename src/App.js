@@ -9,6 +9,7 @@ import Favorites from './pages/favorites/Favorites';
 import CustomPage from './pages/customPage/CustomPage';
 import FormCustom from './pages/formCustom/formCustom';
 import DetailsCustom from './pages/detailsCustom/DetailsCustom';
+import ProtectedRoute from './components/protectedRoute/protectedRoute';
 
 function App() {
   return (
@@ -22,21 +23,16 @@ function App() {
           <Route path="/details/:id">
             <Details />
           </Route>
-          <Route path="/details-custom/:id">
-            <DetailsCustom />
-          </Route>
+          <ProtectedRoute
+            path="/details-custom/:id"
+            component={DetailsCustom}
+          />
           <Route path="/search/">
             <SearchPage />
           </Route>
-          <Route path="/favorites">
-            <Favorites />
-          </Route>
-          <Route path="/custom">
-            <CustomPage />
-          </Route>
-          <Route path="/create-custom">
-            <FormCustom />
-          </Route>
+          <ProtectedRoute path="/favorites" component={Favorites} />
+          <ProtectedRoute path="/custom" component={CustomPage} />
+          <ProtectedRoute path="/create-custom" component={FormCustom} />
         </Switch>
       </main>
       <Footer />
