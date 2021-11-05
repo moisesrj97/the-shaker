@@ -35,10 +35,10 @@ const DataContextProvider = (props) => {
       ],
     },
     lists: {
-      ingredients: ['Vodka', 'Gin'],
-      types: ['Ordinary Drink'],
-      glasses: ['Cocktail glass'],
-      alcoholic: ['Alcoholic'],
+      ingredients: [''],
+      types: [''],
+      glasses: [''],
+      alcoholic: [''],
     },
   });
 
