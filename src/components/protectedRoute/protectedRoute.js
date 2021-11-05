@@ -4,7 +4,6 @@ import { Redirect, Route } from 'react-router';
 
 function ProtectedRoute({ component: Component, ...restOfProps }) {
   const { user } = useAuth0();
-  console.log(user);
   return (
     <Route
       {...restOfProps}
