@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import NavBar from './NavBar';
+import axios from 'axios';
 
 const user = {
   email: 'johndoe@me.com',
@@ -10,6 +11,7 @@ const user = {
 };
 
 jest.mock('@auth0/auth0-react');
+jest.mock('axios');
 
 describe('Given the component NavBar being logged in...', () => {
   beforeEach(() => {
@@ -81,6 +83,90 @@ describe('Given the component NavBar being logged out...', () => {
       expect(screen.queryByText('My Cocktails')).toBeNull();
       expect(screen.queryByText('Favorites')).toBeNull();
       expect(screen.getAllByText(/Login/i)).toHaveLength(2);
+    });
+  });
+  describe('When the user clicks login button...', () => {
+    test('it should call the loginWithRedirect function', () => {
+      const loginWithRedirect = useAuth0().loginWithRedirect;
+
+      axios.get = jest.fn().mockResolvedValue({
+        data: {
+          id: 'johndoe@me.com',
+          fav: [
+            {
+              id: '',
+              name: '',
+              thumb: '',
+              apiId: '',
+            },
+            {
+              id: '12345',
+              name: 'mock cocktail',
+              thumb: '',
+              apiId: '',
+            },
+          ],
+          custom: [
+            {
+              name: '',
+              thumb: '',
+              recipe: '',
+              type: '',
+              glass: '',
+              alcoholic: '',
+              ingredientes: [''],
+              ingredientesAmount: [''],
+              id: '',
+            },
+          ],
+        },
+      });
+
+      fireEvent.click(screen.getByText(/Login/i));
+
+      expect(loginWithRedirect).toHaveBeenCalled();
+    });
+  });
+  describe('When the user clicks login button for the first time...', () => {
+    test('It gets logged in after the api threw an error', () => {
+      const loginWithRedirect = useAuth0().loginWithRedirect;
+
+      axios.get = jest.fn().mockRejectedValue();
+      axios.post = jest.fn().mockResolvedValue({
+        data: {
+          id: 'johndoe@me.com',
+          fav: [
+            {
+              id: '',
+              name: '',
+              thumb: '',
+              apiId: '',
+            },
+            {
+              id: '12345',
+              name: 'mock cocktail',
+              thumb: '',
+              apiId: '',
+            },
+          ],
+          custom: [
+            {
+              name: '',
+              thumb: '',
+              recipe: '',
+              type: '',
+              glass: '',
+              alcoholic: '',
+              ingredientes: [''],
+              ingredientesAmount: [''],
+              id: '',
+            },
+          ],
+        },
+      });
+
+      fireEvent.click(screen.getByText(/login/i));
+      expect(loginWithRedirect).toHaveBeenCalled();
     });
   });
 });
