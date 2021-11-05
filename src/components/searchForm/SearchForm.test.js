@@ -1,12 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from '../../App';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { DataContext } from '../../context/DataContext';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import axios from 'axios';
+import SearchPage from '../../pages/search/SearchPage';
 
 jest.mock('@auth0/auth0-react');
 jest.mock('axios');
@@ -23,9 +22,6 @@ describe('Given the component SearchForm...', () => {
       isAuthenticated: true,
       user,
     });
-
-    const history = createMemoryHistory();
-    history.push('/search');
 
     render(
       <DataContext.Provider
@@ -64,9 +60,9 @@ describe('Given the component SearchForm...', () => {
           },
         }}
       >
-        <Router history={history}>
-          <App />
-        </Router>
+        <BrowserRouter>
+          <SearchPage />
+        </BrowserRouter>
       </DataContext.Provider>
     );
   });
