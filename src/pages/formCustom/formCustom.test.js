@@ -1,24 +1,18 @@
-import {
-  fireEvent,
-  prettyDOM,
-  render,
-  screen,
-  getByLabelText,
-} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from '../../App';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { useAuth0 } from '@auth0/auth0-react';
-import DataContextProvider, { DataContext } from '../../context/DataContext';
+import DataContextProvider from '../../context/DataContext';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
 const user = {
   email: 'johndoe@me.com',
   email_verified: true,
   sub: 'google-oauth2|2147627834623744883746',
 };
+
 jest.mock('@auth0/auth0-react');
 
 describe('Given the component FormCustom...', () => {
@@ -74,15 +68,6 @@ describe('Given the component FormCustom...', () => {
         </DataContextProvider>
       );
 
-      expect(await screen.findByText(/create cocktail/i)).toBeInTheDocument();
-      expect(await screen.findByText(/name/i)).toBeInTheDocument();
-      expect(await screen.findByText(/image url/i)).toBeInTheDocument();
-      expect(await screen.findByText(/recipe/i)).toBeInTheDocument();
-      expect(await screen.findByText(/type/i)).toBeInTheDocument();
-      expect(await screen.findAllByText(/alcoholic/i)).toBeTruthy();
-      expect(await screen.findAllByText(/glass/i)).toBeTruthy();
-      expect(await screen.findByText(/ingredients/i)).toBeInTheDocument();
-
       fireEvent.change(screen.getByLabelText(/name/i), {
         target: { value: 'My custom' },
       });
@@ -125,8 +110,6 @@ describe('Given the component FormCustom...', () => {
       fireEvent.click(screen.getByText(/add/i));
 
       expect(await screen.findAllByText(/My custom/i)).toBeTruthy();
-
-      expect(1 + 1).toBe(2);
     });
   });
   describe('When component is instantiated modify a cocktail...', () => {

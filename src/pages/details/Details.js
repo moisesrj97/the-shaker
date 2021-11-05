@@ -123,7 +123,7 @@ const Details = () => {
     <section className="detail">
       {state.status === 'ERROR' ? (
         <h2 className="favorites">
-          Sorry, we couldn't find your drink! Ask to Gerard(Maybe he stole it)!
+          Sorry, we couldn't find your drink! Ask to Gerard (Maybe he stole it)!
         </h2>
       ) : (
         <>

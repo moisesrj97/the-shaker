@@ -71,7 +71,7 @@ describe('Given the component Details...', () => {
       );
       expect(
         await screen.findByText(
-          "Sorry, we couldn't find your drink! Ask to Gerard(Maybe he stole it)!"
+          "Sorry, we couldn't find your drink! Ask to Gerard (Maybe he stole it)!"
         )
       ).toBeInTheDocument();
     });
