@@ -26,7 +26,6 @@ const DetailsCustom = () => {
 
   useEffect(() => {
     const fetchedCocktail = store.user.custom.find((e) => e.id === id);
-
     if (fetchedCocktail === undefined) {
       setState({ id: 1, status: 'ERROR' });
     } else {
@@ -43,7 +42,7 @@ const DetailsCustom = () => {
         amount: fetchedCocktail.ingredientesAmount,
       });
     }
-  }, [id, state.id]);
+  }, [store]);
 
   const handleShare = async () => {
     const response = await fetch(state.thumb);
