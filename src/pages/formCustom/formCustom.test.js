@@ -201,6 +201,10 @@ describe('Given the component FormCustom...', () => {
         target: { value: '125ml' },
       });
 
+      const deleteButton = await screen.findAllByTestId('delete-ingredient');
+
+      fireEvent.click(deleteButton[0]);
+
       fireEvent.click(await screen.findByText(/add/i));
 
       await waitFor(

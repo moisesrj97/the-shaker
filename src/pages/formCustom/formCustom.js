@@ -233,6 +233,7 @@ const FormCustom = () => {
                     </label>
                     <i
                       className="far fa-trash-alt"
+                      data-testid="delete-ingredient"
                       onClick={() =>
                         setIngredients(
                           ingredients.filter(
