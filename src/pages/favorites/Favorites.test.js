@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Favorites from './Favorites';
 
-import DataContextProvider, { DataContext } from '../../context/DataContext';
+import { DataContext } from '../../context/DataContext';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const user = {
