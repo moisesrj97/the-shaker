@@ -62,6 +62,7 @@ const FormCustom = () => {
 
     if (state.method === 'post') {
       UsersAPI.createCustom(store.user.id, newCocktail).then((response) => {
+        console.log(response);
         dispatch(createCustom(response));
         history.push('/custom');
       });
