@@ -80,11 +80,11 @@ const Details = () => {
           });
         }
       })
-      .catch((e) => setState(undefined));
+      .catch((e) => setState({ id: 1, status: 'ERROR' }));
   }, []);
 
   useEffect(() => {
-    if (store.user.fav.some((e) => e.apiId === state.id)) {
+    if (store.user.fav.some((e) => e?.apiId === state.id)) {
       const favId = store.user.fav.find((e) => e.apiId === state.id).id;
       setState({ ...state, isFavorite: true, favoriteId: favId });
     } else {
@@ -110,7 +110,9 @@ const Details = () => {
       name: state.name,
       thumb: state.thumb,
       apiId: state.id,
-    }).then((response) => dispatch(addFav(response)));
+    }).then((response) => {
+      dispatch(addFav(response));
+    });
   };
 
   const handleDeleteFav = async () => {
@@ -123,7 +125,7 @@ const Details = () => {
     <section className="detail">
       {state.status === 'ERROR' ? (
         <h2 className="favorites">
-          Sorry, we couldn't find your drink! Ask to Gerard(Maybe he stole it)!
+          Sorry, we couldn't find your drink! Ask to Gerard (Maybe he stole it)!
         </h2>
       ) : (
         <>

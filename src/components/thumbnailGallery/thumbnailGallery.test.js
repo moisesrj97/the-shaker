@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom';
 import ThumbnailGallery from './ThumbnailGallery';
 
 const sampleData = {
@@ -65,13 +64,10 @@ const sampleData = {
 describe('Given the component ThumbnailGallery...', () => {
   describe('When component is instantiated...', () => {
     test('renders Thumbnail', () => {
-      const history = createMemoryHistory();
-      history.push('/');
-
       render(
-        <Router history={history}>
+        <BrowserRouter>
           <ThumbnailGallery sampleData={sampleData} />
-        </Router>
+        </BrowserRouter>
       );
 
       expect(
@@ -79,19 +75,15 @@ describe('Given the component ThumbnailGallery...', () => {
       ).toBeInTheDocument();
       expect(screen.getByText(/Army special/i)).toBeInTheDocument();
       expect(screen.getByText(/Cherry Electric Lemonade/i)).toBeInTheDocument();
-
       expect(screen.getAllByRole('img')).toHaveLength(9);
     });
   });
   describe('When component is instantiated and there are not cocktails...', () => {
-    test('renders Thumbnail without cocktails', () => {
-      const history = createMemoryHistory();
-      history.push('/');
-
+    test('renders error message', () => {
       render(
-        <Router history={history}>
+        <BrowserRouter>
           <ThumbnailGallery sampleData={{ drinks: null }} />
-        </Router>
+        </BrowserRouter>
       );
       expect(screen.getByText(/No cocktails to show!/i)).toBeInTheDocument();
     });

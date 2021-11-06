@@ -5,7 +5,7 @@ import { createMemoryHistory } from 'history';
 
 describe('Given the component app...', () => {
   describe('When component is instanciated...', () => {
-    test('renders learn react link', () => {
+    test('renders title', () => {
       const history = createMemoryHistory();
       history.push('/');
 

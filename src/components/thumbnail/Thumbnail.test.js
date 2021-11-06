@@ -1,16 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom';
 import Thumbnail from './Thumbnail';
 
 describe('Given the component Thumbnail...', () => {
   describe('When component is instantiated...', () => {
     test('renders Thumbnail', () => {
-      const history = createMemoryHistory();
-      history.push('/');
-
       render(
-        <Router history={history}>
+        <BrowserRouter>
           <Thumbnail
             sampleData={{
               strDrink: 'Radioactive Long Island Iced Tea',
@@ -19,12 +15,14 @@ describe('Given the component Thumbnail...', () => {
               idDrink: '16984',
             }}
           />
-        </Router>
+        </BrowserRouter>
       );
 
       expect(
         screen.getByText(/Radioactive Long Island Iced Tea/i)
       ).toBeInTheDocument();
+      expect(screen.getByRole('img')).toBeInTheDocument();
+      expect(screen.getByRole('link')).toBeInTheDocument();
     });
   });
 });

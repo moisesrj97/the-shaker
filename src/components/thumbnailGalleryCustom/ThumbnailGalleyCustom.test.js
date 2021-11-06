@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom';
 import ThumbnailGalleryCustom from './ThumbnailGalleryCustom';
 
 const sampleData = {
@@ -62,13 +61,10 @@ const sampleData = {
 describe('Given the component ThumbnailGalleryCustom...', () => {
   describe('When component is instantiated...', () => {
     test('renders Thumbnail', () => {
-      const history = createMemoryHistory();
-      history.push('/custom');
-
       render(
-        <Router history={history}>
+        <BrowserRouter>
           <ThumbnailGalleryCustom sampleData={sampleData} />
-        </Router>
+        </BrowserRouter>
       );
 
       expect(screen.getByText(/Momo/i)).toBeInTheDocument();
@@ -76,6 +72,16 @@ describe('Given the component ThumbnailGalleryCustom...', () => {
       expect(screen.getByText(/Juan/i)).toBeInTheDocument();
 
       expect(screen.getAllByRole('img')).toHaveLength(3);
+    });
+  });
+  describe('When component is instantiated without cocktails...', () => {
+    test('renders message error', () => {
+      render(
+        <BrowserRouter>
+          <ThumbnailGalleryCustom sampleData={{ drinks: null }} />
+        </BrowserRouter>
+      );
+      expect(screen.getByText(/No cocktails to show!/i)).toBeInTheDocument();
     });
   });
 });

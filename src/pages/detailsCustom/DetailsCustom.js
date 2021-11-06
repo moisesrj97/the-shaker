@@ -26,7 +26,6 @@ const DetailsCustom = () => {
 
   useEffect(() => {
     const fetchedCocktail = store.user.custom.find((e) => e.id === id);
-
     if (fetchedCocktail === undefined) {
       setState({ id: 1, status: 'ERROR' });
     } else {
@@ -43,7 +42,7 @@ const DetailsCustom = () => {
         amount: fetchedCocktail.ingredientesAmount,
       });
     }
-  }, [id, state.id]);
+  }, [store]);
 
   const handleShare = async () => {
     const response = await fetch(state.thumb);
@@ -69,7 +68,7 @@ const DetailsCustom = () => {
     <section className="detail">
       {state.status === 'ERROR' ? (
         <h2 className="favorites">
-          Sorry, we couldn't find your drink! Ask to Gerard(Maybe he stole it)!
+          Sorry, we couldn't find your drink! Ask to Gerard (Maybe he stole it)!
         </h2>
       ) : (
         <>
