@@ -1,4 +1,4 @@
-# Group2-Project-202110-Bakery-Coders
+# The Shaker
 
 ## To run
 
