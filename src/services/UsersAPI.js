@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'https://dry-lake-02226.herokuapp.com/';
 export default class UsersAPI {
   static async getUserData(id) {
     try {
